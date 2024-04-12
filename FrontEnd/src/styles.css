@@ -1,0 +1,30 @@
+@import '../node_modules/@syncfusion/ej2-material-theme/styles/material.css';
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.cdnfonts.com/css/overpass');
+@import url('https://fonts.cdnfonts.com/css/noto-sans-new-tai-lue');
+@import url('https://fonts.cdnfonts.com/css/rem');
+@import url('https://fonts.cdnfonts.com/css/noto-sans-new-tai-lue');
+@import url('https://fonts.cdnfonts.com/css/hando-soft-trial');
+@import url('https://fonts.cdnfonts.com/css/rising-sun-2');
+
+*{
+  /*font-family: 'Overpass', sans-serif !important;*/
+  /*font-family: 'Noto Sans New Tai Lue', sans-serif;*/
+  /*font-family: 'REM', sans-serif;*/
+  /*font-family: 'Noto Sans New Tai Lue', sans-serif;*/
+  font-family: 'Hando Soft Trial', sans-serif !important;
+  box-sizing: border-box;
+}
+
+html, body { height: 100%;  }
+body { margin: 0;
+}
+
+
+#solarpanel{
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  width: 100px;
+  z-index: 0;
+}

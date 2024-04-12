@@ -1,0 +1,136 @@
+@import url('https://fonts.cdnfonts.com/css/didact-gothic');
+@import url('https://fonts.cdnfonts.com/css/anek-telugu');
+.navbar{
+  background-color: #f4f4f7;
+  /*background-image: linear-gradient(to left, #3b7ddd, #f4f4f7);*/
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+  padding: 0px !important;
+  box-shadow: 0px 0px 1px #018093;
+}
+
+*{
+  font-weight: 700;
+}
+
+.navbar-toggler{
+  border: none!important;
+  outline: none !important;
+  box-shadow: none !important;
+  font-size: 25px !important;
+}
+
+#logo{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding-left: 20px;
+  color: #FFFFFF;
+  margin-right: 50px;
+}
+
+
+#logo span{
+  margin-top: 8px;
+  margin-left: 10px;
+  font-size: 20px;
+  text-align: center;
+  line-height: 15px;
+}
+
+
+#user-profile{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.navbar-nav{
+  margin: 15px 0px !important;
+}
+
+.nav-link{
+  margin-left: 50px;
+}
+
+@media (max-width: 1290px) {
+  .nav-link{
+    margin: 0px;
+  }
+  .navbar-nav{
+    margin: 15px 0px !important;
+  }
+}
+@media (max-width: 990px) {
+  #logo{
+    position: absolute;
+    top: 5px;
+    right: 40%;
+    margin-right: 0px;
+  }
+
+  #logo img{
+    width: 180px;
+  }
+  .navbar{
+    padding: 15px 0px !important;
+  }
+}
+
+@media (max-width: 1210px) {
+  #logo{
+    margin: 0px;
+  }
+}
+
+@media (max-width: 400px) {
+
+  #logo{
+    right: 20%;
+  }
+  #logo span{
+    font-size: 15px;
+  }
+  #user-profile span{
+    font-size: 15px;
+    display: none;
+  }
+}
+
+a{
+  color: #041e41 !important;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.dropdown-menu a{
+  color: #0e2238 !important;
+}
+
+.nav-link:hover{
+  color: #3b7ddd !important;
+}
+
+.dropdown-menu{
+  transition: 1s;
+}
+
+.dropdown-menu li{
+  border-bottom: 1px solid gray;
+  display: flex;
+  padding: 5px;
+  align-items: center;
+}
+
+.dropdown-menu li:last-child{
+  border-bottom: none;
+}

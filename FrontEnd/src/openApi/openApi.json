@@ -1,0 +1,2863 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OpenAPI definition",
+    "version": "v0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/systemefixation/modifier": {
+      "put": {
+        "tags": [
+          "systeme-fixation-controller"
+        ],
+        "operationId": "modifier_systemeFixation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemeFixation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/panneausolaire/modifier": {
+      "put": {
+        "tags": [
+          "panneau-solaire-controller"
+        ],
+        "operationId": "modifier_panneau",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PanneauSolaire"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ouvrier/modifier": {
+      "put": {
+        "tags": [
+          "ouvrier-controller"
+        ],
+        "operationId": "modifier_ouvrier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ouvrier"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onduleur/modifier": {
+      "put": {
+        "tags": [
+          "onduleur-controller"
+        ],
+        "operationId": "modifier_onduleur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Onduleur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/modifier": {
+      "put": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "modifier_EvenementChantier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvenementChantier"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fournisseur/modifier": {
+      "put": {
+        "tags": [
+          "fournisseur-controller"
+        ],
+        "operationId": "modifierFournisseur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Fournisseur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/modifier": {
+      "put": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "modifier_devis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Devis"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/modifier": {
+      "put": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "modifier_demande",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemandeDevis"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compteur/modifier": {
+      "put": {
+        "tags": [
+          "compteur-controller"
+        ],
+        "operationId": "modifier_compteur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Compteur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/modifier": {
+      "put": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "modifier_client",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cable/modifier": {
+      "put": {
+        "tags": [
+          "cable-controller"
+        ],
+        "operationId": "modifier_cable",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cable"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batterie/modifier": {
+      "put": {
+        "tags": [
+          "batterie-controller"
+        ],
+        "operationId": "modifier_batterie",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Batterie"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemefixation/ajouter": {
+      "post": {
+        "tags": [
+          "systeme-fixation-controller"
+        ],
+        "operationId": "ajouter_systemeFixation",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SystemeFixation"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/panneausolaire/ajouter": {
+      "post": {
+        "tags": [
+          "panneau-solaire-controller"
+        ],
+        "operationId": "ajouter_panneau",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PanneauSolaire"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ouvrier/ajouter": {
+      "post": {
+        "tags": [
+          "ouvrier-controller"
+        ],
+        "operationId": "ajouter_ouvrier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Ouvrier"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onduleur/ajouter": {
+      "post": {
+        "tags": [
+          "onduleur-controller"
+        ],
+        "operationId": "ajouter_onduleur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Onduleur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/mail/envoier": {
+      "post": {
+        "tags": [
+          "email-sender-controller"
+        ],
+        "operationId": "envoier",
+        "parameters": [
+          {
+            "name": "attchement",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "binary"
+              }
+            }
+          },
+          {
+            "name": "to",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subject",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/ajouter": {
+      "post": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "ajouter_jourTravailler",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EvenementChantier"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fournisseur/ajouter": {
+      "post": {
+        "tags": [
+          "fournisseur-controller"
+        ],
+        "operationId": "ajouterFournisseur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Fournisseur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/facture/ajouter": {
+      "post": {
+        "tags": [
+          "facture-controller"
+        ],
+        "operationId": "ajouter_facture",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Facture"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/ajouter": {
+      "post": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "ajouter_devis",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Devis"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/ajouter": {
+      "post": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "ajouter_demande",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DemandeDevis"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compteur/supprimer/{id}": {
+      "post": {
+        "tags": [
+          "compteur-controller"
+        ],
+        "operationId": "supprimer_compteur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "integer",
+                "format": "int64"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compteur/ajouter": {
+      "post": {
+        "tags": [
+          "compteur-controller"
+        ],
+        "operationId": "ajouter_compteur",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Compteur"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/ajouter": {
+      "post": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "ajouter_client",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Client"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chantier/ajouter": {
+      "post": {
+        "tags": [
+          "chantier-controller"
+        ],
+        "operationId": "ajouter_chantier",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Chantier"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cable/ajouter": {
+      "post": {
+        "tags": [
+          "cable-controller"
+        ],
+        "operationId": "ajouter_cable",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cable"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batterie/ajouter": {
+      "post": {
+        "tags": [
+          "batterie-controller"
+        ],
+        "operationId": "ajouter_batterie",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Batterie"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avenant/ajouter": {
+      "post": {
+        "tags": [
+          "avenant-controller"
+        ],
+        "operationId": "ajouter_avenant",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Avenant"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "register",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegistrationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "object"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/authenticate": {
+      "post": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "authenticate",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuthenticationRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/AuthenticationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/vehicule/afficher/tout": {
+      "get": {
+        "tags": [
+          "vehicule-controller"
+        ],
+        "operationId": "afficher_vehicules",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Vehicule"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tache/afficher/tout": {
+      "get": {
+        "tags": [
+          "tache-controller"
+        ],
+        "operationId": "afficherTaches",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Tache"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/systemefixation/afficher/tout": {
+      "get": {
+        "tags": [
+          "systeme-fixation-controller"
+        ],
+        "operationId": "afficher_systemeFixations",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SystemeFixation"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/panneausolaire/afficher/tout": {
+      "get": {
+        "tags": [
+          "panneau-solaire-controller"
+        ],
+        "operationId": "afficher_panneaux",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/PanneauSolaire"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/panneausolaire/afficher/count": {
+      "get": {
+        "tags": [
+          "panneau-solaire-controller"
+        ],
+        "operationId": "grouper_par_modele",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ouvrier/afficher/tout": {
+      "get": {
+        "tags": [
+          "ouvrier-controller"
+        ],
+        "operationId": "afficher_ouvriers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Ouvrier"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onduleur/afficher/tout": {
+      "get": {
+        "tags": [
+          "onduleur-controller"
+        ],
+        "operationId": "afficher_onduleurs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Onduleur"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/afficher/{id}": {
+      "get": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "afficher_planif",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EvenementChantier"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/afficher/tout": {
+      "get": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "afficher_tout_planif",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EvenementChantier"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fournisseur/afficher/tout": {
+      "get": {
+        "tags": [
+          "fournisseur-controller"
+        ],
+        "operationId": "afficherFournisseurs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Fournisseur"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/facture/afficher/tout": {
+      "get": {
+        "tags": [
+          "facture-controller"
+        ],
+        "operationId": "afficher_factures",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Facture"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/facture/afficher/chantier/{id}": {
+      "get": {
+        "tags": [
+          "facture-controller"
+        ],
+        "operationId": "afficher_ParChantier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Facture"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/afficher/{id}": {
+      "get": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "afficher_devis",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Devis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/afficher/tout": {
+      "get": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "afficher_tout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Devis"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/afficher/{id}": {
+      "get": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "afficher",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/DemandeDevis"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/afficher/tout": {
+      "get": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "afficher_tout_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DemandeDevis"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/compteur/afficher/tout": {
+      "get": {
+        "tags": [
+          "compteur-controller"
+        ],
+        "operationId": "afficher_compteurs",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Compteur"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/afficher/{id}": {
+      "get": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "afficher_client",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "$ref": "#/components/schemas/Client"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/afficher/tout": {
+      "get": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "afficher_tout_2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Client"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/chantier/afficher/tout": {
+      "get": {
+        "tags": [
+          "chantier-controller"
+        ],
+        "operationId": "afficher_chantiers",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Chantier"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cable/afficher/tout": {
+      "get": {
+        "tags": [
+          "cable-controller"
+        ],
+        "operationId": "afficher_cables",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batterie/afficher/tout": {
+      "get": {
+        "tags": [
+          "batterie-controller"
+        ],
+        "operationId": "afficher_batteries",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Batterie"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/avenant/afficher/chantier/tout/{id}": {
+      "get": {
+        "tags": [
+          "avenant-controller"
+        ],
+        "operationId": "afficher_avenantParChantierId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Avenant"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/activate-account": {
+      "get": {
+        "tags": [
+          "Authentication"
+        ],
+        "operationId": "confirm",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/systemefixation/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "systeme-fixation-controller"
+        ],
+        "operationId": "supprimer_systemeFixation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/panneausolaire/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "panneau-solaire-controller"
+        ],
+        "operationId": "supprimer_panneau",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/ouvrier/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "ouvrier-controller"
+        ],
+        "operationId": "supprimer_ouvrier",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/onduleur/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "onduleur-controller"
+        ],
+        "operationId": "supprimer_onduleur",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "ajouter_jourTravailler_1",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jour_travailler/supprimer/tout": {
+      "delete": {
+        "tags": [
+          "evenement-chantier-controller"
+        ],
+        "operationId": "ajouter_jourTravailler_2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/fournisseur/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "fournisseur-controller"
+        ],
+        "operationId": "supprimerFournisseur",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "supprimer_devis",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/devis/supprimer/tout": {
+      "delete": {
+        "tags": [
+          "devis-controller"
+        ],
+        "operationId": "supprimer_tout",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "supprimer_demande",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/demande/supprimer/tout": {
+      "delete": {
+        "tags": [
+          "demande-controller"
+        ],
+        "operationId": "supprimer_tout_1",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "supprimer_client",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/client/supprimer/tout": {
+      "delete": {
+        "tags": [
+          "client-controller"
+        ],
+        "operationId": "supprimer_tout_2",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cable/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "cable-controller"
+        ],
+        "operationId": "supprimer_cable",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/batterie/supprimer/{id}": {
+      "delete": {
+        "tags": [
+          "batterie-controller"
+        ],
+        "operationId": "supprimer_batterie",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "*/*": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SystemeFixation": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "materiau": {
+            "type": "string"
+          },
+          "charge": {
+            "type": "number",
+            "format": "float"
+          },
+          "height": {
+            "type": "number",
+            "format": "float"
+          },
+          "width": {
+            "type": "number",
+            "format": "float"
+          },
+          "methode_installation": {
+            "type": "string"
+          },
+          "adaptabilite": {
+            "type": "string"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "PanneauSolaire": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "puissance_nominal": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "courant_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "height": {
+            "type": "number",
+            "format": "float"
+          },
+          "width": {
+            "type": "number",
+            "format": "float"
+          },
+          "poids": {
+            "type": "number",
+            "format": "float"
+          },
+          "type_cellule_colaire": {
+            "type": "string"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "EvenementChantier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "text": {
+            "type": "string"
+          },
+          "chantier": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "vehicule": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "taches": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Tache"
+            }
+          },
+          "ouvriers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Ouvrier"
+            }
+          }
+        }
+      },
+      "Ouvrier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "profesion": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          },
+          "personne": {
+            "$ref": "#/components/schemas/Personne"
+          },
+          "jourTravaillers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvenementChantier"
+            }
+          }
+        }
+      },
+      "Personne": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "age": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "sexe": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "adresse": {
+            "type": "string"
+          }
+        }
+      },
+      "Tache": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Onduleur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "puissance_nominal": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension": {
+            "type": "number",
+            "format": "float"
+          },
+          "frequence": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "nombre_phase": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "tension_circuit_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "courant_circuit_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "Fournisseur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "nom": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "Devis": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "etat": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string"
+          },
+          "panneauSolaire": {
+            "$ref": "#/components/schemas/DevisMateriauPanneauSolaire"
+          },
+          "onduleur": {
+            "$ref": "#/components/schemas/DevisMateriauOnduleur"
+          },
+          "systemeFixation": {
+            "$ref": "#/components/schemas/DevisMateriauSystemeFixation"
+          },
+          "cable": {
+            "$ref": "#/components/schemas/DevisMateriauCable"
+          },
+          "batteri": {
+            "$ref": "#/components/schemas/DevisMateriauBatteri"
+          },
+          "compteur": {
+            "$ref": "#/components/schemas/DevisMateriauCompteur"
+          },
+          "demandeDevis": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "chantier": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "total": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauBatteri": {
+        "type": "object",
+        "properties": {
+          "modeleBatteri": {
+            "type": "string"
+          },
+          "quantiteBatteri": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixBatteri": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaBatteri": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalBatteri": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauCable": {
+        "type": "object",
+        "properties": {
+          "modeleCable": {
+            "type": "string"
+          },
+          "quantiteCable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixCable": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaCable": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCable": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauCompteur": {
+        "type": "object",
+        "properties": {
+          "modeleCompteur": {
+            "type": "string"
+          },
+          "quantiteCompteur": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixCompteur": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaCompteur": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalCompteur": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauOnduleur": {
+        "type": "object",
+        "properties": {
+          "modeleOnduleur": {
+            "type": "string"
+          },
+          "quantiteOnduleur": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixOnduleur": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaOnduleur": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalOnduleur": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauPanneauSolaire": {
+        "type": "object",
+        "properties": {
+          "modelePanneau": {
+            "type": "string"
+          },
+          "quantitePanneau": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixPanneau": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaPanneau": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPanneau": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "DevisMateriauSystemeFixation": {
+        "type": "object",
+        "properties": {
+          "modeleSysFixation": {
+            "type": "string"
+          },
+          "quantiteSysFixation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "prixSysFixation": {
+            "type": "number",
+            "format": "float"
+          },
+          "tvaSysFixation": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalSysFixation": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "ClientPotentiel": {
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "telephone": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          }
+        }
+      },
+      "DemandeDevis": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "clientPotentiel": {
+            "$ref": "#/components/schemas/ClientPotentiel"
+          },
+          "emplacement": {
+            "type": "string"
+          },
+          "code_Postal": {
+            "type": "string"
+          },
+          "batiment_type": {
+            "type": "string"
+          },
+          "surface_disponible": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "toiture_type": {
+            "type": "string"
+          },
+          "access_elec": {
+            "type": "boolean"
+          },
+          "consommation": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "string"
+          },
+          "devis": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Compteur": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "type_cnx": {
+            "type": "string"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "capacite": {
+            "type": "number",
+            "format": "float"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "Avenant": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "montant": {
+            "type": "number",
+            "format": "float"
+          },
+          "status": {
+            "type": "string"
+          },
+          "chantier": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Chantier": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "description": {
+            "type": "string"
+          },
+          "emplacement": {
+            "type": "string"
+          },
+          "facture": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "evenementChantiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvenementChantier"
+            }
+          },
+          "avenants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Avenant"
+            }
+          },
+          "devis": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "client": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "Client": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "personne": {
+            "$ref": "#/components/schemas/Personne"
+          },
+          "chantiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Chantier"
+            }
+          }
+        }
+      },
+      "Cable": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "longueur": {
+            "type": "number",
+            "format": "float"
+          },
+          "diametre": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension_nominal": {
+            "type": "number",
+            "format": "float"
+          },
+          "section_trensversal": {
+            "type": "string"
+          },
+          "materiau": {
+            "type": "string"
+          },
+          "isolation": {
+            "type": "string"
+          },
+          "resistance": {
+            "type": "number",
+            "format": "float"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          }
+        }
+      },
+      "Batterie": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "capacite_stockage": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension_nominal": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension_charge_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "tension_decharge_maximal": {
+            "type": "number",
+            "format": "float"
+          },
+          "cycle_vie": {
+            "type": "string"
+          },
+          "temperature_fonctionnement": {
+            "type": "number",
+            "format": "float"
+          },
+          "duree_vie": {
+            "type": "string"
+          },
+          "garantie": {
+            "type": "string"
+          },
+          "date_fabrication": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "prix": {
+            "type": "number",
+            "format": "float"
+          },
+          "quantite": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "Facture": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "total": {
+            "type": "number",
+            "format": "double"
+          },
+          "chantier": {
+            "type": "integer",
+            "format": "int64"
+          }
+        }
+      },
+      "RegistrationRequest": {
+        "required": [
+          "email",
+          "nom",
+          "password",
+          "prenom"
+        ],
+        "type": "object",
+        "properties": {
+          "nom": {
+            "type": "string"
+          },
+          "prenom": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 2147483647,
+            "minLength": 8,
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationRequest": {
+        "required": [
+          "email",
+          "password"
+        ],
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "maxLength": 2147483647,
+            "minLength": 8,
+            "type": "string"
+          }
+        }
+      },
+      "AuthenticationResponse": {
+        "type": "object",
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        }
+      },
+      "Vehicule": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "marque": {
+            "type": "string"
+          },
+          "modele": {
+            "type": "string"
+          },
+          "ref": {
+            "type": "string"
+          },
+          "disponible": {
+            "type": "boolean"
+          },
+          "evenementChantiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EvenementChantier"
+            }
+          }
+        }
+      }
+    }
+  }
+}

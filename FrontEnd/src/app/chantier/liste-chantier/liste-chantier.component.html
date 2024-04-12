@@ -1,0 +1,10 @@
+<div class="fluid-container">
+  <div class="my-box">
+    <div class="card" *ngFor="let item of chantiers" (click)="suivi_chantier(item)">
+      <div id="cover"></div>
+      <span>
+        <span>{{item.emplacement}}</span>
+      </span>
+    </div>
+  </div>
+</div>

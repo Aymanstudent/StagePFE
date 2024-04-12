@@ -1,0 +1,134 @@
+<div class="fluid-container">
+  <h1 class="title">{{chantier.description}} {{chantier.emplacement}}</h1>
+  <div class="box">
+    <div class="row">
+      <div class="col-3">
+        <ul>
+          <li data-tab-target="#tache" class="focus">Tâches</li>
+          <li data-tab-target = "#materiaux">Materiaux</li>
+          <li data-tab-target = "#avenant">Avenant</li>
+          <li data-tab-target = "#factures">Factures</li>
+        </ul>
+      </div>
+      <div class="col">
+        <div class="tab-content">
+          <div id="tache" data-tab-content class="active">
+            <h1>Tâches</h1>
+            <!--Les taches-->
+          </div>
+          <div id="materiaux" data-tab-content>
+            <h1>materiaux</h1>
+            <div class="content">
+              <div class="row header">
+                <div class="col">Materielle</div><div class="col">Modele</div><div class="col">quantité</div>
+              </div>
+              <div class="row">
+                <div class="col">Pannuea solaire : </div><div class="col">{{materiaux.panneauSolaire.modelePanneau}}</div><div class="col">{{materiaux.panneauSolaire.quantite}}</div>
+              </div>
+              <div class="row">
+                <div class="col">Onduleur : </div><div class="col">{{materiaux.onduleur.modeleOnduleur}}</div><div class="col">{{materiaux.onduleur.quantite}}</div>
+              </div>
+              <div class="row">
+                <div class="col">Systeme de fixation : </div><div class="col">{{materiaux.systemeFixation.modeleSysFixation}}</div><div class="col">{{materiaux.systemeFixation.quantite}}</div>
+              </div>
+              <div class="row">
+                <div class="col">Cable : </div><div class="col">{{materiaux.cable.modeleCable}}</div><div class="col">{{materiaux.cable.quantite}}</div>
+              </div>
+              <div class="row">
+                <div class="col">Batterie : </div><div class="col">{{materiaux.batteri.modeleBattrie}}</div><div class="col">{{materiaux.batteri.quantite}}</div>
+              </div>
+              <div class="row">
+                <div class="col">Compteur : </div><div class="col">{{materiaux.compteur.modeleCompteur}}</div><div class="col">{{materiaux.compteur.quantite}}</div>
+              </div>
+            </div>
+          </div>
+          <div id="avenant" data-tab-content>
+            <h1>avenant</h1>
+            <div class="content">
+              <div class="d-flex align-items-center">
+                <h2 class="ms-2">Ajouter une avenant</h2>
+                <i class="bi bi-plus-square-fill ms-3" style="color: #3b7ddd; margin-bottom: 15px;"></i>
+              </div>
+              <table class="my-table" mat-table [dataSource]="dataSource">
+
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef> date </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reference">
+                  <th mat-header-cell *matHeaderCellDef> référence </th>
+                  <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="montant">
+                  <th mat-header-cell *matHeaderCellDef> montant </th>
+                  <td mat-cell *matCellDef="let element"> {{element.montant}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef> status </th>
+                  <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef> action </th>
+                  <td mat-cell *matCellDef="let element"></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+              </table>
+
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                             aria-label="Select page of avenants">
+              </mat-paginator>
+            </div>
+          </div>
+          <div id="factures" data-tab-content>
+            <h1>factures</h1>
+            <div class="content">
+              <div class="d-flex align-items-center">
+                <h2 class="ms-2">Ajouter une facture</h2>
+                <i class="bi bi-plus-square-fill ms-3" style="color: #3b7ddd; margin-bottom: 15px;"></i>
+              </div>
+              <table class="my-table" mat-table [dataSource]="FactureDateSource">
+
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef> date </th>
+                  <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="reference">
+                  <th mat-header-cell *matHeaderCellDef> référence </th>
+                  <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="chantier">
+                  <th mat-header-cell *matHeaderCellDef> chantier </th>
+                  <td mat-cell *matCellDef="let element"> {{element.chantier}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="total">
+                  <th mat-header-cell *matHeaderCellDef> total </th>
+                  <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                  <th mat-header-cell *matHeaderCellDef> action </th>
+                  <td mat-cell *matCellDef="let element"></td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="FactureDisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: FactureDisplayedColumns;"></tr>
+              </table>
+              <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                             aria-label="Select page of factures">
+              </mat-paginator>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

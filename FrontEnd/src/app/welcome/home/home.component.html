@@ -1,0 +1,62 @@
+<div class="fuild-container">
+  <nav class="navbar navbar-expand-md" aria-label="Fourth navbar example">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample04">
+        <ul class="navbar-nav m-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Fonctionnalité</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">gestion des chantier</a></li>
+              <li><a class="dropdown-item" href="#">gestion de stock</a></li>
+              <li><a class="dropdown-item" href="#">gestion des ouvriers</a></li>
+              <li><a class="dropdown-item" href="#">planification</a></li>
+              <li><a class="dropdown-item" href="#">facture</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="login">Login</a>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-orange" data-bs-toggle="modal" data-bs-target="#contactModal"> Contact </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="mt-5 h-75 w-100">
+    <div class="w-100 h-100 d-flex justify-content-center flex-column">
+      <h1 style="margin: 25px auto; color: white; font-size: 3rem">Bienvenu à <span style="color: #cb0ecb">ECO</span>SOLAIRE</h1>
+      <h2 style="margin: 25px auto; color: white; font-size: 1.5rem; font-weight: 700">Votre meilleur outil de gestion photovoltaique</h2>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <input class="form-control" placeholder="e-mail">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <textarea class="form-control" placeholder="message"></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end p-3">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="envoier()">envoier</button>
+      </div>
+    </div>
+  </div>
+</div>

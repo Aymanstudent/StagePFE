@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg" aria-label="Fifth navbar example">
+  <div id="logo">
+    <img src="./assets/lg.png" width="200px">
+<!--    <span>ÉcoSolaire <br> <span style="font-size: 10px; margin-left: 0px">PHOTOVOLTAIQUE</span> </span>-->
+  </div>
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample05" aria-controls="navbarsExample05" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="bi bi-list" style="color: #0e2238"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample05">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="gestionnaire">Planifier</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="planifier/chantier">Chantier</a></li>
+            <li><a class="dropdown-item">Intervention</a></li>
+            <li><a class="dropdown-item">Maganisier</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="gestionnaire||secretaire">Stock</a>
+          <ul class="dropdown-menu">
+            <li><img src="./assets/mini-panneau-solaire-110-60mm-6v-1w-tuni-smart-innovation.png" width="30px"><a class="dropdown-item" routerLink="panneaux solaire">Panneaux Solaire</a></li>
+            <li><img src="./assets/Onduleur_hybride_1.png" width="30px"><a class="dropdown-item" routerLink="view-onduleur">Onduleur</a></li>
+            <li><img src="./assets/51O6laxT1JL._AC_UF1000,1000_QL80_.png" width="30px"><a class="dropdown-item" href="#">Systeme de support</a></li>
+            <li><img src="./assets/unnamed.png" width="30px"><a class="dropdown-item" href="#">Cables</a></li>
+            <li><img src="./assets/téléchargé.png" width="30px"><a class="dropdown-item" href="#">Batterie</a></li>
+            <li><img src="./assets/compteur.png" width="30px"><a class="dropdown-item" href="#">Compteurs</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="gestionnaire||secretaire">Devis</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="devis/demande/suivi" *ngIf="gestionnaire||secretaire">les demandes</a></li>
+            <li><a class="dropdown-item" routerLink="devis/suivi" *ngIf="gestionnaire">les devis</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="chantier" *ngIf="gestionnaire||secretaire">Chantiers</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="planifier/ouvrier" *ngIf="technicien||secretaire">Calendrier</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="client/suivi" *ngIf="gestionnaire||secretaire">Clients</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="fournisseur/suivi" *ngIf="gestionnaire||secretaire">Fournisseurs</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="ouvrier/suivi" *ngIf="gestionnaire||secretaire">Ouvriers</a>
+        </li>
+      </ul>
+    </div>
+    <div id="user-profile">
+      <div class="dropdown">
+        <img src="./assets/profile-pic%20(1).png" width="35px" style="border-radius: 50px" data-bs-toggle="dropdown" aria-expanded="false">
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" routerLink="user">Profile</a></li>
+          <li><button class="btn btn-dark" (click)="logout()">déconnexion</button></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+

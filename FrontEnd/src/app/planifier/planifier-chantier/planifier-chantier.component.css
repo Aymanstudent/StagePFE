@@ -1,0 +1,215 @@
+/*@import url('https://fonts.cdnfonts.com/css/anek-telugu');*/
+/*@import url('https://fonts.cdnfonts.com/css/inclusive-sans-2');*/
+/*.fluid-container{*/
+/*  padding-top: 150px;*/
+/*  padding-right: 100px;*/
+/*  padding-left: 100px;*/
+/*}*/
+
+/*h1{*/
+/*  color: #3b7ddd;*/
+/*  font-size: 3rem;*/
+/*  font-weight: bold;*/
+/*  margin-bottom: 80px;*/
+/*}*/
+
+/*#days, #week{*/
+/*  text-align: center;*/
+/*  background-color: #3b7ddd;*/
+/*  margin-bottom: 3px;*/
+/*  color: white;*/
+/*  border-radius: 3px;*/
+/*}*/
+
+/*#days .col:first-child{*/
+/*  border-top-left-radius: 3px;*/
+/*  border-bottom-left-radius: 3px;*/
+/*}*/
+
+/*.col{*/
+/*  padding: 15px;*/
+/*  text-transform: capitalize;*/
+/*  font-size: 1rem !important;*/
+/*}*/
+
+/*.col div{*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*h3{*/
+/*  margin: 0;*/
+/*}*/
+
+/*.collapse{*/
+/*  width: 100%;*/
+/*  color: #0e2238;*/
+/*}*/
+
+/*.example-box{*/
+/*  background-color: #3b7ddd;*/
+/*  height: fit-content;*/
+/*  padding: 3px;*/
+/*  width: fit-content;*/
+/*  text-align: center;*/
+/*  color: white;*/
+/*  font-weight: 600;*/
+/*  border-radius: 5px;*/
+/*  margin-bottom: 5px;*/
+/*  cursor: pointer;*/
+/*}*/
+
+/*.col{*/
+/*  border: 1px solid #f4f4f7;*/
+/*}*/
+
+/*.chantier button{*/
+/*  background-color: transparent;*/
+/*  color: #0e2238;*/
+/*  padding: 10px 25px;*/
+/*  border: none;*/
+/*}*/
+
+/*.chantier{*/
+/*  background-color: #e0e9fe;*/
+/*  color: #0e2238;*/
+/*  font-weight: 700;*/
+/*  font-size: 1rem;*/
+/*  text-align: start;*/
+/*}*/
+
+/*#ouvrier .col:not(:first-child){*/
+/*  text-align: center;*/
+/*}*/
+
+/*#vehicule .example-box{*/
+/*  background-color: #0e2238;*/
+/*}*/
+/*#ouvrier .col:first-child{*/
+/*  background-color: #e0e9fe;*/
+/*}*/
+/*#vehicule .col:first-child{*/
+/*  background-color: #e0e9fe;*/
+/*}*/
+/*#tache .col:first-child{*/
+/*  background-color: #e0e9fe;*/
+/*}*/
+/*#carnet_route .col:first-child{*/
+/*  background-color: #e0e9fe;*/
+/*}*/
+
+/*#suivi_chantier .col:first-child{*/
+/*  background-color: #e0e9fe;*/
+/*}*/
+
+/*#list_ouvrier{*/
+/*  border-radius: 3px;*/
+/*  border: 1px solid rgba(59, 125, 221, 0.13);*/
+/*  padding: 25px;*/
+/*}*/
+
+/*#list_ouvrier div{*/
+/*  display: flex;*/
+/*  align-items: center;*/
+/*  flex-wrap: wrap;*/
+/*  gap: 8px;*/
+/*}*/
+
+
+/*#my-box{*/
+/*  max-height: 100vb;*/
+/*  scroll-behavior: smooth;*/
+/*  overflow-y: scroll;*/
+/*}*/
+
+@import 'dhtmlx-scheduler/codebase/dhtmlxscheduler.css';
+
+:host{
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#event-container {
+  /* Styles for the container element */
+  position: relative;
+}
+
+.custom-event {
+  /* Styles for the individual event boxes */
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.event-title {
+  /* Styles for the event title */
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.event-time {
+  /* Styles for the event time */
+  font-size: 0.8em;
+  color: #888;
+}
+
+.chantier{
+  font-weight: 700;
+  margin: 10px 5px;
+}
+
+#custom_form{
+  width: 370px;
+  height: 370px;
+  background-color: white;
+  padding: 25px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px #3b7ddd;
+}
+
+#custom_form label{
+  font-size: 1.1rem;
+}
+
+.form-select{
+  box-shadow: none !important;
+  border-radius: 3px !important;
+  width: 300px !important;
+}
+
+.technicien{
+  background-color: #CADCFC;
+  padding: 8px 5px;
+  border-radius: 3px;
+  color: #041e41;
+  margin: 5px;
+}
+
+.taches{
+  background-color: #f4f4f7;
+  padding: 12px 8px;
+  border-radius: 2px;
+  color: #041e41;
+  width: 300px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.taches:hover{
+  background-color: #CADCFC;
+}
+
+i{
+  cursor: pointer;
+}
+
+.btn{
+  border-radius: 3px !important;
+}
+
+

@@ -1,0 +1,268 @@
+<div class="fluid-container" (change)="CalculateTotalMateriaux()">
+  <h1>Creer une devis</h1>
+  <div class="content">
+    <div id="about">
+      <h2>Les information du demande:</h2>
+      <div class="row">
+        <div class="col">- Consommation en mois : <span>{{service.demande.consommation}} Kwh</span></div>
+        <div class="col">- accée électrique : <span>{{service.demande.access_elec}}</span></div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">- Surface disponible  : <span>{{service.demande.surface_disponible}} m²</span></div>
+        <div class="col">- Type de batiment : <span>{{service.demande.batiment_type}}</span></div>
+      </div>
+      <div class="row mt-3">
+        <div class="col">- Emplacement : <span>{{service.demande.emplacement}}</span></div>
+        <div class="col">- Type de toiture : <span>{{service.demande.toiture_type}}</span></div>
+      </div>
+    </div>
+    <div id="header" class="row">
+      <div class="col">matériaux</div>
+      <div class="col">quantité</div>
+      <div class="col">prix/q</div>
+      <div class="col">tva</div>
+      <div class="col">total</div>
+    </div>
+
+<!--Panneaux solaire-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_panneau($event)">
+          <option value="">Panneau Solaire</option>
+          <option  *ngFor="let element of List_PanneauxSlaire" value="{{element.prix}}" [(ngModel)]="devis.panneauSolaire.modelePanneau">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.panneauSolaire.quantitePanneau" (ngModelChange)="CalculateTotalPanneau()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.panneauSolaire.prixPanneau" (ngModelChange)="CalculateTotalPanneau()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalPanneau()">
+        <select class="form-select w-50 m-auto" (change)="TvaPanneauSolaire($event)">
+          <option *ngFor="let item of TVA" [value]="item" >{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto"  readonly [(ngModel)]="TotalPanneauSolaire">
+      </div>
+    </div>
+
+<!--Onduleur-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_onduleur($event)">
+          <option value="">Onduleur</option>
+          <option *ngFor="let element of List_Onduleur" value="{{element.prix}}">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.onduleur.quantiteOnduleur" (ngModelChange)="CalculateTotalOnduleur()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.onduleur.prixOnduleur" (ngModelChange)="CalculateTotalOnduleur()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalOnduleur()">
+        <select class="form-select w-50 m-auto" (change)="TvaOnduleur($event)">
+          <option *ngFor="let item of TVA" [value]="item">{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto"  readonly [value]="TotalOnduleur">
+      </div>
+    </div>
+
+<!--systeme fixation-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_systemeFixation($event)">
+          <option value="">Systeme de fixation</option>
+          <option  *ngFor="let element of List_SystemeFixation" value="{{element.prix}}">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.systemeFixation.quantiteSysFixation" (ngModelChange)="CalculateTotalSystemeFixation()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.systemeFixation.prixSysFixation" (ngModelChange)="CalculateTotalSystemeFixation()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalSystemeFixation()">
+        <select class="form-select w-50 m-auto" (change)="TvaSystemeFixation($event)">
+          <option *ngFor="let item of TVA" [value]="item">{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" readonly [value]="TotalSystemeFixation">
+      </div>
+    </div>
+
+<!--cable-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_cable($event)">
+          <option value="">cable</option>
+          <option  *ngFor="let element of List_cables" value="{{element.prix}}">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.cable.quantiteCable" (ngModelChange)="CalculateTotalCable()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.cable.prixCable" (ngModelChange)="CalculateTotalCable()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalCable()">
+        <select class="form-select w-50 m-auto" (change)="TvaCable($event)">
+          <option *ngFor="let item of TVA" [value]="item">{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" readonly [value]="TotalCable">
+      </div>
+    </div>
+
+<!--batterie-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_batterie($event)">
+          <option value="">Batterie</option>
+          <option  *ngFor="let element of List_batteries" value="{{element.prix}}">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.batteri.quantiteBatteri" (ngModelChange)="CalculateTotalBatterie()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.batteri.prixBatteri" (ngModelChange)="CalculateTotalBatterie()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalBatterie()">
+        <select class="form-select w-50 m-auto" (change)="TvaBatterie($event)">
+          <option *ngFor="let item of TVA" [value]="item">{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" readonly [value]="TotalBatteri">
+      </div>
+    </div>
+
+<!--compteur-->
+    <div class="row body">
+      <div class="col">
+        <select class="form-select" (change)="affecter_prix_compteur($event)">
+          <option value="">Compteur</option>
+          <option *ngFor="let element of List_compteurs" value="{{element.prix}}">{{element.modele}}</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.compteur.quantiteCompteur" (ngModelChange)="CalculateTotalCompteur()">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" [(ngModel)]="devis.compteur.prixCompteur" (ngModelChange)="CalculateTotalCompteur()" readonly>
+      </div>
+      <div class="col" (change)="CalculateTotalCompteur()">
+        <select class="form-select w-50 m-auto" (change)="TvaCompteur($event)">
+          <option *ngFor="let item of TVA" [value]="item">{{item}}%</option>
+        </select>
+      </div>
+      <div class="col">
+        <input type="text" class="form-control w-50 m-auto" readonly [value]="TotalCompteur">
+      </div>
+    </div>
+
+<!--footer-->
+    <div class="row foot">
+      <div class="col"><div class="mt-2">Total</div></div>
+      <div class="col-4">
+        <input class="form-control w-25 m-auto" readonly [value]="TotalMateriaux">
+      </div>
+    </div>
+  </div>
+  <div class="row mt-3">
+    <div class="col d-flex justify-content-end"><button class="btn btn-light me-2"  data-bs-toggle="modal" data-bs-target="#exampleModal">imprimer</button><button class="btn btn-primary" (click)="ajouter_devis()">enregistrer</button></div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="modal-body">
+        <img src="assets/logoeee.png" width="150px">
+        <div class="row mt-5">
+          <div class="col">client : </div>
+          <div class="col">telephone : </div>
+          <div class="col">email : </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">emplacement : </div>
+          <div class="col">code postal : </div>
+          <div class="col">consommation : </div>
+        </div>
+        <table class="table table-striped mt-5">
+          <thead>
+            <tr>
+              <td>matériaux</td>
+              <td>quantité</td>
+              <td>prix</td>
+              <td>tva</td>
+              <td>total</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Panneau Solaire</td>
+              <td>{{devis.panneauSolaire.quantitePanneau}}</td>
+              <td>{{devis.panneauSolaire.prixPanneau}}</td>
+              <td>{{devis.panneauSolaire.tvaPanneau}}%</td>
+              <td>{{TotalPanneauSolaire}}</td>
+            </tr>
+            <tr>
+              <td>Onduleur</td>
+              <td>{{devis.onduleur.quantiteOnduleur}}</td>
+              <td>{{devis.onduleur.prixOnduleur}}</td>
+              <td>{{devis.onduleur.tvaOnduleur}}%</td>
+              <td>{{TotalOnduleur}}</td>
+            </tr>
+            <tr>
+              <td>systeme fixation</td>
+              <td>{{devis.systemeFixation.quantiteSysFixation}}</td>
+              <td>{{devis.systemeFixation.prixSysFixation}}</td>
+              <td>{{devis.systemeFixation.tvaSysFixation}}%</td>
+              <td>{{TotalSystemeFixation}}</td>
+            </tr>
+            <tr>
+              <td>Cable</td>
+              <td>{{devis.cable.quantiteCable}}</td>
+              <td>{{devis.cable.prixCable}}</td>
+              <td>{{devis.cable.tvaCable}}%</td>
+              <td>{{TotalCable}}</td>
+            </tr>
+            <tr>
+              <td>Batteri</td>
+              <td>{{devis.batteri.quantiteBatteri}}</td>
+              <td>{{devis.batteri.prixBatteri}}</td>
+              <td>{{devis.batteri.tvaBatteri}}%</td>
+              <td>{{TotalBatteri}}</td>
+            </tr>
+            <tr>
+              <td>Compteur</td>
+              <td>{{devis.compteur.quantiteCompteur}}</td>
+              <td>{{devis.compteur.prixCompteur}}</td>
+              <td>{{devis.compteur.tvaCompteur}}%</td>
+              <td>{{TotalCompteur}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4" style="text-align: end; border-right: 1px solid rgba(128,128,128,0.25);">Total</td>
+              <td>{{TotalMateriaux}}</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="d-flex justify-content-end p-2">
+        <button type="button" class="btn btn-primary" printSectionId="exampleModal" ngxPrint [useExistingCss] ="true"><i class="bi bi-printer"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+

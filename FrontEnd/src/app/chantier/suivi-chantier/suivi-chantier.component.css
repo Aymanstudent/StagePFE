@@ -1,0 +1,265 @@
+.fluid-container{
+  padding-top: 150px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+*{font-family: 'Hando Soft Trial', sans-serif !important;}
+
+h1{
+  color: #17278a;
+  padding: 25px;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+
+.title{
+  margin-bottom: 25px;
+  font-size: 3rem;
+}
+
+[data-tab-content]{
+  display: none;
+}
+
+.active[data-tab-content]{
+  display: block;
+}
+
+.col, .col-3{
+  padding: 0px;
+}
+
+.col-3 ul{
+  display: block;
+  padding: 0px;
+}
+
+.focus{
+  background-color: #3b7ddd !important;
+  color: white!important;
+}
+
+.col-3 ul li{
+  list-style: none;
+  background-color: #CADCFC;
+  color: #3b7ddd;
+  font-weight: 600 !important;
+  padding: 40px 0px;
+  height: fit-content;
+  width: 350px;
+  text-align: center;
+  border-radius: 5px;
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: 0.2s;
+  box-shadow: 5px 5px 5px rgba(34, 61, 213, 0.06);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.col-3 ul li:not(:last-child){
+  margin-bottom: 45px;
+}
+
+#tache, #rentabilité,#fournisseur{
+  width: 100%;
+}
+
+#tache h1,#rentabilité h1,#materiaux h1,#factures h1,#avenant h1{
+  padding: 30px 25px;
+  color: white;
+  background-color: #3b7ddd;
+  font-size: 1.8rem;
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 3px;
+}
+
+.tache_list_item{
+  list-style: none;
+  padding: 5px;
+  margin: 15px 0px!important;
+  border-bottom: 1px solid rgba(34, 61, 213, 0.15);
+  color: #041e41 !important;
+  font-size: 1.2rem;
+  display: flex;
+}
+
+.tache_list_item p{
+  width: 90% !important;
+}
+
+.tache_list_item input{
+  border: 2px solid rgba(34, 61, 213, 0.27);
+  outline: none;
+  box-shadow: none;
+  width: 25px;
+  height: 25px;
+}
+
+.content{
+  margin-top: 50px;
+}
+
+.my-table{
+  background-color: #FFFFFF !important;
+  border-collapse: collapse !important;
+  border-radius: 3px 3px 0px 0px !important;
+  overflow:hidden !important;
+  border: 1px solid rgba(4, 30, 65, 0.11) !important;
+  box-shadow: 0px 0px 1px rgb(4, 30, 65) !important;
+}
+
+.my-table td{
+  border-bottom: 1px solid rgba(4, 30, 65, 0.08);
+}
+
+.my-table th,.my-table td{
+  text-align: center !important;
+  font-size: 1.2rem;
+  color: #041e41;
+  background-color: #FFFFFF;
+}
+
+.my-table th{
+  font-weight: 700;
+  text-transform: capitalize;
+  border-bottom: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+.my-table th:not(:last-child){
+  border-right: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+.my-table td:not(:last-child){
+  border-right: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+mat-paginator{
+  background-color: #3b7ddd !important;
+  font-size: 1rem !important;
+  border-collapse: collapse !important;
+  border-radius: 0px 0px 3px 3px !important;
+  overflow:hidden !important;
+  padding: 0px !important;
+}
+
+i{
+  cursor: pointer;
+  opacity: 70%;
+}
+
+i:hover{
+  opacity: 100%;
+}
+
+.btn-primary{
+  background-color: #3b7ddd !important;
+  border: none !important;
+  border-radius: 3px !important;
+}
+
+.btn-light{
+  border-radius: 3px !important;
+}
+
+.btn-primary:hover{
+  background-color: #1066d3 !important;
+}
+
+.form-control{
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.form-select{
+  box-shadow: none !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.form-label{
+  font-weight: 600;
+}
+
+.attente{
+  background-color: #3b7ddd;
+  padding: 10px;
+  color: #FFFFFF;
+}
+
+.fait{
+  background-color: #018093;
+  padding: 10px 15px;
+  color: #FFFFFF;
+}
+
+i{
+  opacity: 70%;
+  font-size: 1.5rem;
+}
+
+i:hover{
+  opacity: 100%;
+}
+
+.voir{
+  color: blue;
+}
+
+.modifier{
+  color: green;
+}
+
+.supprimer{
+  color: red;
+}
+
+.modal{
+  font-size: 1rem;
+}
+
+#clientModal .row{
+  padding: 5px 15px;
+}
+
+#clientModal h2{
+  text-transform: capitalize;
+  margin : 0px!important;
+}
+
+.btn{
+  border-radius: 3px !important;
+}
+
+.imprimer div{
+  width: 100%;
+}
+
+.btn-imprimer{
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+}
+
+.content h2{
+  color: #3b7ddd;
+  font-size: 1.6rem;
+}
+.content .row{
+  padding: 0px 25px;
+  text-align: center;
+}
+.content .row .col,.content .row .col-2{
+  padding: 15px 25px;
+  border: 1px solid rgba(4, 30, 65, 0.11) !important;
+  color: #041e41;
+  font-size: 1.3rem;
+}
+.header .col,.header .col-2{
+  background-color: #018093;
+  color: #FFFFFF !important;
+}

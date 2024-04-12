@@ -1,0 +1,36 @@
+@import 'dhtmlx-scheduler/codebase/dhtmlxscheduler.css';
+
+:host{
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#event-container {
+  /* Styles for the container element */
+  position: relative;
+}
+
+.custom-event {
+  /* Styles for the individual event boxes */
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.event-title {
+  /* Styles for the event title */
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.event-time {
+  /* Styles for the event time */
+  font-size: 0.8em;
+  color: #888;
+}
