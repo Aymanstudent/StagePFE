@@ -40,18 +40,24 @@ public class SecurityConfiguration {
                                         "/webjars/**",
                                         "configuration/ui",
                                         "configuration/security",
+                                "/supplier/**",
                                 "/auth/**",
-                                "/panneausolaire/**",
-                                "/avenant/**",
-                                "/batterie/**",
+                                "/solarPanel/**",
+                                "/meter/**",
+                                "/mail/**",
                                 "/cable/**",
-                                "/systemefixation/**",
-                                "/chantier/**",
+                                "/systemFixing/**",
+                                "/constructor/**",
+                                "/devisRequest/**",
                                 "/devis/**",
-                                "/demande/**",
-                                "/client/**",
-                                "/fournisseur/**",
-                                "/onduleur/**"
+                                "/customer/**",
+                                "/inverter/**",
+                                "/worker/**",
+                                "/activity/**",
+                                "/amendment/**",
+                                "/battery/**",
+                                "/bill/**",
+                                "/vehicle/**"
                         ).permitAll()
                                 .anyRequest()
                                 .authenticated()

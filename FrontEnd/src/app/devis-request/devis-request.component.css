@@ -1,0 +1,205 @@
+.fluid-container {
+  padding-top: 150px;
+  padding-right: 100px;
+  padding-left: 100px;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #3b7ddd;
+  font-weight: bold;
+}
+
+.content {
+  margin-top: 50px;
+  min-width: 350px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+}
+
+.my-table {
+  background-color: #FFFFFF !important;
+  border-collapse: collapse !important;
+  border-radius: 3px 3px 0px 0px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(4, 30, 65, 0.11) !important;
+  box-shadow: 0px 0px 1px rgb(4, 30, 65) !important;
+}
+
+.my-table td {
+  border-bottom: 1px solid rgba(4, 30, 65, 0.08);
+}
+
+.my-table th, .my-table td {
+  text-align: center !important;
+  font-size: 1.2rem;
+  color: #041e41;
+  background-color: #FFFFFF;
+}
+
+.my-table th {
+  font-weight: 700;
+  text-transform: capitalize;
+  border-bottom: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+.my-table th:not(:last-child) {
+  border-right: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+.my-table td:not(:last-child) {
+  border-right: 1px solid rgba(4, 30, 65, 0.11);
+}
+
+mat-paginator {
+  background-color: #3b7ddd !important;
+  font-size: 1rem !important;
+  border-collapse: collapse !important;
+  border-radius: 0px 0px 3px 3px !important;
+  overflow: hidden !important;
+  padding: 0px !important;
+}
+
+
+i {
+  cursor: pointer;
+  opacity: 70%;
+}
+
+i:hover {
+  opacity: 100%;
+}
+
+.btn-primary {
+  background-color: #3b7ddd !important;
+  border: none !important;
+  border-radius: 3px !important;
+}
+
+.btn-light {
+  border-radius: 3px !important;
+}
+
+.btn-primary:hover {
+  background-color: #1066d3 !important;
+}
+
+.form-control {
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.form-select {
+  box-shadow: none !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(0, 0, 0, 0.44);
+}
+
+.form-label {
+  font-weight: 600;
+}
+
+.attente {
+  background-color: #3b7ddd;
+  padding: 10px;
+  color: #FFFFFF;
+}
+
+.fait {
+  background-color: #018093;
+  padding: 10px 15px;
+  color: #FFFFFF;
+}
+
+i {
+  opacity: 70%;
+  font-size: 1.5rem;
+}
+
+i:hover {
+  opacity: 100%;
+}
+
+.voir {
+  color: blue;
+}
+
+.modifier {
+  color: green;
+}
+
+.supprimer {
+  color: red;
+}
+
+.modal {
+  font-size: 1rem;
+}
+
+#clientModal .row {
+  padding: 5px 15px;
+}
+
+#clientModal h2 {
+  text-transform: capitalize;
+  margin: 0px !important;
+}
+
+.btn {
+  border-radius: 3px !important;
+}
+
+.imprimer div {
+  width: 100%;
+}
+
+.btn-imprimer {
+  border: none;
+  width: fit-content;
+  height: fit-content;
+  background-color: transparent;
+}
+
+
+@media (max-width: 1024px) {
+  .fluid-container {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  .my-table td, .my-table th {
+    font-size: 0.7rem !important;
+    padding: 0 !important;
+  }
+
+  mat-paginator {
+    font-size: 0.7rem !important;
+  }
+
+  .bi-plus-square-fill {
+    font-size: 18px !important;
+    margin-top: 8px !important;
+  }
+
+  i {
+    font-size: 14px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  i {
+    font-size: 10px !important;
+  }
+  .my-table th, .my-table td{
+    font-size: 0.6rem !important;
+    height: fit-content !important;
+  }
+}
+
+

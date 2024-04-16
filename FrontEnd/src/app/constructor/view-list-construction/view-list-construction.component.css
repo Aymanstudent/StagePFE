@@ -1,0 +1,36 @@
+.fluid-container {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 150px;
+  height: 100vb;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.construction {
+  background-color: #17278a;
+  color: white;
+  font-size: 32px;
+  text-align: center;
+  width: 450px;
+  height: 300px;
+  line-height: 38px;
+  border-radius: 15px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  text-transform: capitalize;
+  padding: 25px;
+}
+
+.construction:hover{
+  scale: 102%;
+  text-shadow: 0 0 5px white;
+}

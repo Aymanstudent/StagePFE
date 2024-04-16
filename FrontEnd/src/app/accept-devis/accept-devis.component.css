@@ -1,0 +1,19 @@
+h1{
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.btn{
+  border-radius: 3px;
+  margin: 12px;
+  padding: 12px 25px;
+  font-size: 18px;
+}
+
+.hidden{
+  display: none;
+}
+
+.show{
+  display: block;
+}

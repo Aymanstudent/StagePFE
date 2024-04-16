@@ -14,9 +14,9 @@ public class Vehicule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String marque;
-    private String modele;
+    private String model;
     private String ref;
-    private Boolean disponible;
+    private Boolean available;
     @OneToMany(mappedBy = "vehicule")
-    private List<EvenementChantier> evenementChantiers;
+    private List<Activity> activities;
 }

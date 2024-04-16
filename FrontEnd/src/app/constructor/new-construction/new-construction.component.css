@@ -1,0 +1,81 @@
+.fluid-container{
+  padding-right: 100px;
+  padding-left: 100px;
+  padding-top: 150px;
+}
+
+h1{
+  font-size: 3rem;
+  color: #3b7ddd;
+  font-weight: 600;
+}
+
+h2{
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.content{
+  padding: 50px;
+}
+
+.row{
+  margin-top: 25px;
+}
+
+.form-label{
+  font-size: 1.2rem !important;
+  margin-bottom: 12px !important;
+}
+
+.form-control{
+  box-shadow: none !important;
+  border-radius: 3px !important;
+  border: 1px solid rgba(4, 30, 65, 0.4);
+}
+
+.btn{
+  border-radius: 3px !important;
+}
+
+.btn-primary{
+  background-color: #3b7ddd !important;
+}
+
+#customer{
+  margin-top: 25px;
+}
+
+#constructor{
+  margin-top: 25px;
+}
+
+#information{
+  font-size: 1.3rem;
+  padding: 18px 0px;
+}
+
+#information i{
+  color: #3b7ddd;
+  cursor: pointer;
+  opacity: 75%;
+  font-size: 1.5rem;
+}
+
+#information i:hover{
+  opacity: 100%;
+}
+
+.modal-body{
+  font-size: 1.2rem;
+  line-height: 40px;
+}
+
+.form-select{
+  box-shadow: none !important;
+  font-weight: 700 !important;
+}
+
+.alert{
+  transition: 0.4s;
+}

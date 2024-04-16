@@ -1,0 +1,184 @@
+<div class="fluid-container">
+  <div class="col d-flex justify-content-start">
+    <h1>Demandes des devis</h1>
+    <i class="bi bi-plus-square-fill mt-1 ms-3" data-bs-toggle="modal" data-bs-target="#ajouterModal" style="font-size: 2rem; color: #3b7ddd; opacity: 100%;" (click)="clearDevisRequest()"></i>
+  </div>
+  <div class="content">
+    <div class="row mb-1">
+      <div class="col-4">
+        <input type="text" class="form-control" (keyup)="applyFilter()" placeholder="search">
+      </div>
+
+    </div>
+    <table class="my-table" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="emplacement">
+        <th mat-header-cell *matHeaderCellDef> emplacement </th>
+        <td mat-cell *matCellDef="let element"> {{element.location}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="consommation">
+        <th mat-header-cell *matHeaderCellDef> consommation </th>
+        <td mat-cell *matCellDef="let element"> {{element.consumption}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="code_postal">
+        <th mat-header-cell *matHeaderCellDef> code postal </th>
+        <td mat-cell *matCellDef="let element"> {{element.post_code}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="batiment_type">
+        <th mat-header-cell *matHeaderCellDef> batiment type </th>
+        <td mat-cell *matCellDef="let element"> {{element.building_type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="toiture_type">
+        <th mat-header-cell *matHeaderCellDef> toiture type </th>
+        <td mat-cell *matCellDef="let element"> {{element.roof_type}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> action </th>
+        <td mat-cell *matCellDef="let element"><i class="bi bi-send" style="color: blue" (click)="createDevis(element)" ></i><i class="ms-3 bi bi-pencil-square" style="color: green;" (click)="selectDevisRequest(element)" data-bs-toggle="modal" data-bs-target="#modifModal"></i><i class="ms-3 bi bi-trash" style="color: red;" (click)="selectDevisRequest(element)" data-bs-toggle="modal" data-bs-target="#exampleModal"></i><button class="btn-imprimer" printSectionId="demande" ngxPrint   [useExistingCss]="true"><i class="ms-3 bi bi-printer" style="color: #018093 " (click)="selectDevisRequest(element)"></i></button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   aria-label="Select page of clients">
+    </mat-paginator>
+  </div>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1rem;">
+        Allez-vous supprimer cette demande?
+      </div>
+      <div class="d-flex justify-content-end gap-2 p-3">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">annuler</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteDevisRequest()">oui</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ajouterModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1rem;">
+        <div class="row">
+          <div class="col"><label for="nom" class="form-label">nom du client : </label><input id="nom" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.firstName"></div>
+          <div class="col"><label for="prenom" class="form-label">prenom du client : </label><input id="prenom" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.lastName"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="email" class="form-label">email du client : </label><input id="email" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.email"></div>
+          <div class="col"><label for="telephone" class="form-label">telephone du client : </label><input id="telephone" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.phone"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="emplacement" class="form-label">emplacement : </label><input type="text" id="emplacement" class="form-control" [(ngModel)]="devisRequest.location"></div>
+          <div class="col"><label for="code_postal" class="form-label">code postal : </label><input type="text" id="code_postal" class="form-control" [(ngModel)]="devisRequest.post_code"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="consommation" class="form-label">consommation par mois : </label><input type="number" id="consommation" class="form-control" placeholder="kwh" [(ngModel)]="devisRequest.consumption"></div>
+          <div class="col"><label for="accée_electrique" class="form-label">accée électrique : </label>
+            <select id="accée_electrique" class="form-select" [(ngModel)]="devisRequest.electricity_access">
+              <option value=true class="form-option">oui</option>
+              <option value=false class="form-option">non</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="batiment_type" class="form-label">type de batiment : </label>
+            <select id="batiment_type" class="form-select" [(ngModel)]="devisRequest.building_type">
+              <option class="form-option" *ngFor="let element of buildings" value="{{ element }}">{{ element }}</option>
+            </select>
+          </div>
+          <div class="col"><label for="surface_disponible" class="form-label">surface disponible : </label><input type="number" id="surface_disponible" class="form-control" placeholder="m²" [(ngModel)]="devisRequest.available_area"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="toiture_type" class="form-label">type de toiture : </label>
+            <select id="toiture_type" class="form-select" [(ngModel)]="devisRequest.roof_type">
+              <option class="form-option" *ngFor="let element of roofs" value="{{ element }}">{{ element }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end gap-2 p-3">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">annuler</button>
+        <button type="submit" class="btn btn-primary" (click)="addDevisRequest()" data-bs-dismiss="modal">enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modifModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1rem;">
+        <div class="row">
+          <div class="col"><label for="modif_nom" class="form-label">nom du client : </label><input id="modif_nom" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.firstName"></div>
+          <div class="col"><label for="modif_prenom" class="form-label">prenom du client : </label><input id="modif_prenom" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.lastName"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="modif_email" class="form-label">email du client : </label><input id="modif_email" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.email"></div>
+          <div class="col"><label for="modif_telephone" class="form-label">telephone du client : </label><input id="modif_telephone" type="text" class="form-control" [(ngModel)]="devisRequest.potential_customer.phone"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="modif_emplacement" class="form-label">emplacement : </label><input type="text" id="modif_emplacement" class="form-control" [(ngModel)]="devisRequest.location"></div>
+          <div class="col"><label for="modif_code_postal" class="form-label">code postal : </label><input type="text" id="modif_code_postal" class="form-control" [(ngModel)]="devisRequest.post_code"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="modif_consommation" class="form-label">consommation par mois : </label><input type="number" id="modif_consommation" class="form-control" placeholder="kwh" [(ngModel)]="devisRequest.consumption"></div>
+          <div class="col"><label for="modif_accée_electrique" class="form-label">accée électrique : </label>
+            <select id="modif_accée_electrique" class="form-select" [(ngModel)]="devisRequest.electricity_access">
+              <option value=true class="form-option">oui</option>
+              <option value=false class="form-option">non</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="modif_batiment_type" class="form-label">type de batiment : </label>
+            <select id="modif_batiment_type" class="form-select" [(ngModel)]="devisRequest.building_type">
+              <option class="form-option" *ngFor="let element of buildings" value="{{ element }}">{{ element }}</option>
+            </select>
+          </div>
+          <div class="col"><label for="modif_surface_disponible" class="form-label">surface disponible : </label><input type="number" id="modif_surface_disponible" class="form-control" placeholder="m²" [(ngModel)]="devisRequest.available_area"></div>
+        </div>
+        <div class="row mt-3">
+          <div class="col"><label for="modif_toiture_type" class="form-label">type de toiture : </label>
+            <select id="modif_toiture_type" class="form-select" [(ngModel)]="devisRequest.roof_type">
+              <option class="form-option" *ngFor="let element of roofs" value="{{ element }}">{{ element }}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end gap-2 p-3">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">annuler</button>
+        <button type="button" class="btn btn-primary" (click)="udapteDevisRequest()" data-bs-dismiss="modal">enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="d-none" id="demande">
+  <div class="imprimer">
+    <h3 style="color: black; text-align: center; margin-bottom: 100px;">Demande devis</h3> <br>
+    client : {{devisRequest.potential_customer.firstName}} {{devisRequest.potential_customer.lastName}} <br> <br>
+    contact : {{devisRequest.potential_customer.phone}} ou {{devisRequest.potential_customer.email}} <br> <br>
+    emplacement : {{devisRequest.location}} <br> <br>
+    code postal : {{devisRequest.post_code}} <br> <br>
+    accée electruque : {{devisRequest.electricity_access}} <br> <br>
+    consommation : {{devisRequest.consumption}} Kwh <br> <br>
+    type de battiment : {{devisRequest.building_type}} <br> <br>
+    surface disponible : {{devisRequest.available_area}} <br> <br>
+    type de toiture : {{devisRequest.roof_type}}
+  </div>
+  <div class="d-flex justify-content-between align-items-center mt-5">
+    <img src="assets/stamp.png" width="150px">
+    <img src="assets/logoeee.png" width="150px" height="75px"></div>
+</div>

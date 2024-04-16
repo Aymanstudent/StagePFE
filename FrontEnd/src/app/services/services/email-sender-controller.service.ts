@@ -9,8 +9,8 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { envoier } from '../fn/email-sender-controller/envoier';
-import { Envoier$Params } from '../fn/email-sender-controller/envoier';
+import { send } from '../fn/email-sender-controller/send';
+import { Send$Params } from '../fn/email-sender-controller/send';
 
 @Injectable({ providedIn: 'root' })
 export class EmailSenderControllerService extends BaseService {
@@ -18,27 +18,27 @@ export class EmailSenderControllerService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `envoier()` */
-  static readonly EnvoierPath = '/mail/envoier';
+  /** Path part for operation `send()` */
+  static readonly SendPath = '/mail/send';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `envoier()` instead.
+   * To access only the response body, use `send()` instead.
    *
    * This method doesn't expect any request body.
    */
-  envoier$Response(params: Envoier$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return envoier(this.http, this.rootUrl, params, context);
+  send$Response(params: Send$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return send(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `envoier$Response()` instead.
+   * To access the full response (for headers, for example), `send$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  envoier(params: Envoier$Params, context?: HttpContext): Observable<string> {
-    return this.envoier$Response(params, context).pipe(
+  send(params: Send$Params, context?: HttpContext): Observable<string> {
+    return this.send$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }

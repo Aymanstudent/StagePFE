@@ -1,0 +1,169 @@
+<div class="fluid-container">
+  <h1>Stock des onduleurs</h1>
+  <div class="row">
+    <div class="col-3 p-3">
+      <div class="flex justify-content-start">
+        <span style="font-size: 1.5rem; color: #3b7ddd; font-weight: 700">Ajouter un onduleur</span>
+        <i class="bi bi-plus-square-fill ms-3" style="color: #3b7ddd" data-bs-toggle="modal" data-bs-target="#AddInverterModal" (click)="clearInverter()"></i>
+      </div>
+      <div class="progress">
+        <circle-progress
+          [percent]="calculateStock()"
+          [radius]="100"
+          [outerStrokeWidth]="16"
+          [innerStrokeWidth]="8"
+          [outerStrokeColor]="'#3b7ddd'"
+          [innerStrokeColor]="'#0e2238'"
+          [animation]="true"
+          [animationDuration]="300"
+        ></circle-progress>
+        <span>Niveau de stock</span>
+      </div>
+    </div>
+    <div class="col items">
+      <div class="item" *ngFor="let item of inverterList">
+        <div class="image"><img [src]="getImageUrl(item.image)"></div>
+        <div class="description">
+          <div class="d-flex justify-content-end mb-3"><button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#UpdateInverterModal" (click)="selectInverter(item)">Modifier</button></div>
+          <span id="title">
+          {{item.model}} <br> <span style="color: red; margin: 12px;">Prix : {{item.price}} TND</span>
+          </span>
+          <p id="description">
+            Puissance nominal: {{item.nominal_power}} W<br>
+            Tension maximal: {{item.maximum_circuit_voltage}} V<br>
+            Courant maximal: {{item.minimal_circuit_current}} A<br>
+            Des mesures <br>
+            Fréquence: {{item.frequency}} mm<br>
+            Tension: {{item.tension}} mm<br>
+            Nombre de phase: {{item.phase_number}} kg<br>
+            Type : {{item.type}}<br>
+          </p>
+          <div class="d-flex align-items-center justify-content-end m-2 w-100">
+            <div class="quantity me-2">x{{item.quantity}} pièces</div>
+            <div class="d-flex align-items-center">
+              <input type="number" class="form-control nb-piece text-center" (keyup)="onKey($event)">
+              <i class="bi bi-plus-square-fill" style="font-size: 2.5rem; color: #3b7ddd" (click)="addQuantity(item)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="AddInverterModal" tabindex="-1" aria-labelledby="AddInverterLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label class="form-label">modele :</label>
+            <input class="form-control" type="text" [(ngModel)]="inverter.model">
+          </div>
+          <div class="col">
+            <label class="form-label">puissance nominal :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.nominal_power">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label class="form-label">tension maximal de circuit :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.maximum_circuit_voltage">
+          </div>
+          <div class="col">
+            <label class="form-label">courant minimal :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.minimal_circuit_current">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label class="form-label">fréquence :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.frequency">
+          </div>
+          <div class="col">
+            <label class="form-label">tension :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.tension">
+          </div>
+          <div class="col">
+            <label class="form-label">nombre de phase :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.phase_number">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label class="form-label">type :</label>
+            <input class="form-control" type="text" [(ngModel)]="inverter.type">
+          </div>
+          <div class="col">
+            <label class="form-label">prix :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.price">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <input class="form-control" type="file" (change)="onFileChange($event)">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addInverter()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="UpdateInverterModal" tabindex="-1" aria-labelledby="UpdateInverterLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label class="form-label">modele :</label>
+            <input class="form-control" type="text" [(ngModel)]="inverter.model">
+          </div>
+          <div class="col">
+            <label class="form-label">puissance nominal :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.nominal_power">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label class="form-label">tension maximal :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.maximum_circuit_voltage">
+          </div>
+          <div class="col">
+            <label class="form-label">courant minimal :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.minimal_circuit_current">
+          </div>
+          <div class="col">
+            <label class="form-label">fréquence :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.frequency">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label class="form-label">tension :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.tension">
+          </div>
+          <div class="col">
+            <label class="form-label">nombre de phase :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.phase_number">
+          </div>
+          <div class="col-4">
+            <label class="form-label">prix :</label>
+            <input class="form-control" type="number" [(ngModel)]="inverter.price">
+          </div>
+        </div>
+      <div class="row mt-2">
+        <div class="col">
+          <input class="form-control" type="file" (change)="onFileChange($event)">
+        </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateInverter()">Enregistrer</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>

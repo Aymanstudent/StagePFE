@@ -1,15 +1,21 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {user} from "../../models/User";
+import {TokenService} from "../../services/token/token.service";
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.css']
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
 
-  constructor() {}
+  constructor(private tokenService : TokenService) {}
 
+  public user : any = {
+    nom : "",
+    prenom : ""
+  }
+  UserEmail : string = ""
   displaySelectedImage(event: Event, elementId: string): void {
     const selectedImage: HTMLImageElement = document.getElementById(elementId) as HTMLImageElement;
     const fileInput: HTMLInputElement = event.target as HTMLInputElement;
@@ -21,7 +27,6 @@ export class ProfileComponent {
       reader.readAsDataURL(fileInput.files[0]);
     }
   }
-  user : user = {id : 1, info : {nom : "Ayman", prenom : "Cherif", age : 22, sexe : "Homme", telephone : "55119415", email : "cherifayman45@gmail.com"}, password : "123456789"}
 
   public urllink :string = "assets/profile-pic%20(1).png"
   selectFile(event : any){
@@ -33,4 +38,14 @@ export class ProfileComponent {
       }
     }
   }
+
+  ngOnInit() {
+    const Tokenuser = this.tokenService.decodeToken(this.tokenService.token)
+    this.UserEmail = Tokenuser.email
+  }
+
+  getUserByEmail(){
+
+  }
+
 }

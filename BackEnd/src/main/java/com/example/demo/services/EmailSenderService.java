@@ -1,7 +1,6 @@
 package com.example.demo.services;
 
 
-
 import com.example.demo.Enum.EmailTemplateName;
 import jakarta.mail.MessagingException;
 import jakarta.mail.internet.MimeMessage;
@@ -28,8 +27,10 @@ public class EmailSenderService {
 
     private final JavaMailSender mailSender;
     private final SpringTemplateEngine templateEngine;
-
-    public void sendEmail(String toEmail, String subject, String body, MultipartFile[] attachment) throws MessagingException, IOException {
+    public void sendEmail(String toEmail,
+                          String subject,
+                          String body,
+                          MultipartFile[] attachment) throws MessagingException, IOException {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper = new MimeMessageHelper(mimeMessage, true);
 
@@ -38,7 +39,7 @@ public class EmailSenderService {
         mimeMessageHelper.setText(body);
         mimeMessageHelper.setSubject(subject);
 
-        for (int i = 0; i < attachment.length; i++){
+        for (int i = 0; i < attachment.length; i++) {
             mimeMessageHelper.addAttachment(
                     Objects.requireNonNull(attachment[i].getOriginalFilename()),
                     new ByteArrayResource(attachment[i].getBytes())
@@ -49,7 +50,7 @@ public class EmailSenderService {
     }
 
 
-@Async
+    @Async
     public void sendEmailAuth(
             String to,
             String username,
@@ -59,9 +60,9 @@ public class EmailSenderService {
             String subject
     ) throws MessagingException {
         String templateName;
-        if(emailTemplate == null){
+        if (emailTemplate == null) {
             templateName = "confirm-email";
-        }else {
+        } else {
             templateName = emailTemplate.getNom();
         }
 

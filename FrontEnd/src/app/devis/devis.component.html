@@ -1,0 +1,166 @@
+<div class="fluid-container">
+  <div class="col d-flex justify-content-start">
+    <h1>Les devis</h1>
+  </div>
+  <div class="alert alert-success" *ngIf="emailSended">{{EmailSentMessage}}</div>
+  <div class="content">
+    <div class="row mb-1">
+      <div class="col-4">
+        <input type="text" class="form-control w-50" (keyup)="applyFilter()" placeholder="search">
+      </div>
+    </div>
+    <table class="my-table" mat-table [dataSource]="dataSource">
+
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> date </th>
+        <td mat-cell *matCellDef="let element"> {{formatDate(element.date)}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="ref">
+        <th mat-header-cell *matHeaderCellDef> reference </th>
+        <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="total">
+        <th mat-header-cell *matHeaderCellDef> total </th>
+        <td mat-cell *matCellDef="let element"> {{element.total}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef> status </th>
+        <td mat-cell *matCellDef="let element" ><div [ngClass]="{'toBeSent' : element.status === 'à envoier','waiting': element.status === 'en attente','accepted': element.status === 'accepter','refused': element.status === 'refuser'}">{{element.status}}</div></td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> action </th>
+        <td mat-cell *matCellDef="let element"><i class="bi bi-plus-lg" style="color: #018093;" (click)="navigateToAddNewConstruction(element)" *ngIf="element.status === 'accepter'"></i><i class="ms-3 bi bi-send" style="color: blue" data-bs-toggle="modal" data-bs-target="#sendmail" (click)="getDevisRequestById(element)"></i><i class="bi bi-pencil-square ms-3" style="color: green" (click)="selectDevis(element)"></i><i class="ms-3 bi bi-trash" style="color: red;" (click)="selectDevis(element)" data-bs-toggle="modal" data-bs-target="#exampleModal"></i><button class="btn-imprimer" printSectionId="imprimentModal" ngxPrint   [useExistingCss]="true"><i class="ms-2 bi bi-printer" style="color: #018093 " (click)="selectDevis(element)"></i></button></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                   aria-label="Select page of clients">
+    </mat-paginator>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body" style="font-size: 1rem;">
+        Allez-vous supprimer cette devis?
+      </div>
+      <div class="d-flex justify-content-end gap-2 p-3">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">annuler</button>
+        <button type="button" class="btn btn-danger" (click)="deleteDevis()">oui</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="imprimentModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="modal-body">
+        <h1 style="text-align:center; font-weight: 700;"> DEVIS </h1>
+        <h2 style="color: #041e41; text-align: start; font-size: 22px; margin-top: 25px;">Reférence : {{devis.ref}}</h2>
+        <table class="table table-striped mt-3">
+          <thead>
+          <tr>
+            <td>matériaux</td>
+            <td>quantité</td>
+            <td>prix</td>
+            <td>tva</td>
+            <td>total</td>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Panneau Solaire</td>
+            <td>{{devis.solarPanel.quantitySolarPanel}}</td>
+            <td>{{devis.solarPanel.priceSolarPanel}}</td>
+            <td>{{devis.solarPanel.tvaSolarPanel}}%</td>
+            <td>{{devis.solarPanel.totalSolarPanel}}</td>
+          </tr>
+          <tr>
+            <td>Onduleur</td>
+            <td>{{devis.inverter.quantityInverter}}</td>
+            <td>{{devis.inverter.priceInverter}}</td>
+            <td>{{devis.inverter.tvaInverter}}%</td>
+            <td>{{devis.inverter.totalInverter}}</td>
+          </tr>
+          <tr>
+            <td>systeme fixation</td>
+            <td>{{devis.systemFixing.quantitySystemFixing}}</td>
+            <td>{{devis.systemFixing.priceSystemFixing}}</td>
+            <td>{{devis.systemFixing.tvaSystemFixing}}%</td>
+            <td>{{devis.systemFixing.totalSystemFixing}}</td>
+          </tr>
+          <tr>
+            <td>Cable</td>
+            <td>{{devis.cable.quantityCable}}</td>
+            <td>{{devis.cable.priceCable}}</td>
+            <td>{{devis.cable.tvaCable}}%</td>
+            <td>{{devis.cable.totalCable}}</td>
+          </tr>
+          <tr>
+            <td>Batteri</td>
+            <td>{{devis.battery.quantityBattery}}</td>
+            <td>{{devis.battery.priceBattery}}</td>
+            <td>{{devis.battery.tvaBattery}}%</td>
+            <td>{{devis.battery.totalBattery}}</td>
+          </tr>
+          <tr>
+            <td>Compteur</td>
+            <td>{{devis.meter.quantityMeter}}</td>
+            <td>{{devis.meter.priceMeter}}</td>
+            <td>{{devis.meter.tvaMeter}}%</td>
+            <td>{{devis.meter.totalMeter}}</td>
+          </tr>
+          </tbody>
+          <tfoot>
+          <tr>
+            <td colspan="4" style="text-align: end; border-right: 1px solid rgba(128,128,128,0.25);">Total</td>
+            <td>{{devis.total}} TND</td>
+          </tr>
+          </tfoot>
+        </table>
+      </div>
+      <div class="d-flex justify-content-end">
+        <img src="assets/Black%20Handwritten%20Signature%20Studio%20Logo.png" width="200px">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="sendmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" >
+      <div class="text-center mt-2">
+        <h2>Envoier une devis par mail</h2>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-3">
+          <div class="col">
+            <label for="email" class="form-label">Email : </label> <input id="email" class="form-control" type="email" [(ngModel)]="devisRequest.potential_customer.email">
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <label for="context" class="form-label">Body : </label> <textarea id="context" class="form-control" rows="6">Cher {{devisRequest.potential_customer.firstName}} {{devisRequest.potential_customer.lastName}}
+          </textarea>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <input id="object" class="form-control" type="file" (change)="changeFile($event)">
+          </div>
+        </div>
+        <div class="d-flex justify-content-end"><button class="btn btn-primary mt-3" (click)="sendEmailToCustomer()" data-bs-dismiss="modal">envoier</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+

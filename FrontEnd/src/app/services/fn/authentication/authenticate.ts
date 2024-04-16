@@ -1,7 +1,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import { HttpClient, HttpContext, HttpResponse } from '@angular/common/http';
-import {catchError, Observable} from 'rxjs';
+import { Observable } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
@@ -28,7 +28,5 @@ export function authenticate(http: HttpClient, rootUrl: string, params: Authenti
     })
   );
 }
-
-
 
 authenticate.PATH = '/auth/authenticate';

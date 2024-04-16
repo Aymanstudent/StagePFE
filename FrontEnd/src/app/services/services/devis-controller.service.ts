@@ -9,19 +9,19 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { afficherDevis } from '../fn/devis-controller/afficher-devis';
-import { AfficherDevis$Params } from '../fn/devis-controller/afficher-devis';
-import { afficherTout } from '../fn/devis-controller/afficher-tout';
-import { AfficherTout$Params } from '../fn/devis-controller/afficher-tout';
-import { ajouterDevis } from '../fn/devis-controller/ajouter-devis';
-import { AjouterDevis$Params } from '../fn/devis-controller/ajouter-devis';
+import { addDevis } from '../fn/devis-controller/add-devis';
+import { AddDevis$Params } from '../fn/devis-controller/add-devis';
+import { deleteDevis } from '../fn/devis-controller/delete-devis';
+import { DeleteDevis$Params } from '../fn/devis-controller/delete-devis';
 import { Devis } from '../models/devis';
-import { modifierDevis } from '../fn/devis-controller/modifier-devis';
-import { ModifierDevis$Params } from '../fn/devis-controller/modifier-devis';
-import { supprimerDevis } from '../fn/devis-controller/supprimer-devis';
-import { SupprimerDevis$Params } from '../fn/devis-controller/supprimer-devis';
+import { getDevis } from '../fn/devis-controller/get-devis';
+import { GetDevis$Params } from '../fn/devis-controller/get-devis';
+import { getDevisById } from '../fn/devis-controller/get-devis-by-id';
+import { GetDevisById$Params } from '../fn/devis-controller/get-devis-by-id';
 import { supprimerTout } from '../fn/devis-controller/supprimer-tout';
 import { SupprimerTout$Params } from '../fn/devis-controller/supprimer-tout';
+import { updateDevis } from '../fn/devis-controller/update-devis';
+import { UpdateDevis$Params } from '../fn/devis-controller/update-devis';
 
 @Injectable({ providedIn: 'root' })
 export class DevisControllerService extends BaseService {
@@ -29,133 +29,108 @@ export class DevisControllerService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `modifierDevis()` */
-  static readonly ModifierDevisPath = '/devis/modifier';
+  /** Path part for operation `updateDevis()` */
+  static readonly UpdateDevisPath = '/devis/update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `modifierDevis()` instead.
+   * To access only the response body, use `updateDevis()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  modifierDevis$Response(params: ModifierDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return modifierDevis(this.http, this.rootUrl, params, context);
+  updateDevis$Response(params: UpdateDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return updateDevis(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `modifierDevis$Response()` instead.
+   * To access the full response (for headers, for example), `updateDevis$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  modifierDevis(params: ModifierDevis$Params, context?: HttpContext): Observable<string> {
-    return this.modifierDevis$Response(params, context).pipe(
+  updateDevis(params: UpdateDevis$Params, context?: HttpContext): Observable<string> {
+    return this.updateDevis$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 
-  /** Path part for operation `ajouterDevis()` */
-  static readonly AjouterDevisPath = '/devis/ajouter';
+  /** Path part for operation `addDevis()` */
+  static readonly AddDevisPath = '/devis/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `ajouterDevis()` instead.
+   * To access only the response body, use `addDevis()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  ajouterDevis$Response(params: AjouterDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return ajouterDevis(this.http, this.rootUrl, params, context);
+  addDevis$Response(params: AddDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return addDevis(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `ajouterDevis$Response()` instead.
+   * To access the full response (for headers, for example), `addDevis$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  ajouterDevis(params: AjouterDevis$Params, context?: HttpContext): Observable<string> {
-    return this.ajouterDevis$Response(params, context).pipe(
+  addDevis(params: AddDevis$Params, context?: HttpContext): Observable<string> {
+    return this.addDevis$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 
-  /** Path part for operation `afficherDevis()` */
-  static readonly AfficherDevisPath = '/devis/afficher/{id}';
+  /** Path part for operation `getDevis()` */
+  static readonly GetDevisPath = '/devis/get';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `afficherDevis()` instead.
+   * To access only the response body, use `getDevis()` instead.
    *
    * This method doesn't expect any request body.
    */
-  afficherDevis$Response(params: AfficherDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<Devis>> {
-    return afficherDevis(this.http, this.rootUrl, params, context);
+  getDevis$Response(params?: GetDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Devis>>> {
+    return getDevis(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `afficherDevis$Response()` instead.
+   * To access the full response (for headers, for example), `getDevis$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  afficherDevis(params: AfficherDevis$Params, context?: HttpContext): Observable<Devis> {
-    return this.afficherDevis$Response(params, context).pipe(
-      map((r: StrictHttpResponse<Devis>): Devis => r.body)
-    );
-  }
-
-  /** Path part for operation `afficherTout()` */
-  static readonly AfficherToutPath = '/devis/afficher/tout';
-
-  /**
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `afficherTout()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  afficherTout$Response(params?: AfficherTout$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Devis>>> {
-    return afficherTout(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `afficherTout$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  afficherTout(params?: AfficherTout$Params, context?: HttpContext): Observable<Array<Devis>> {
-    return this.afficherTout$Response(params, context).pipe(
+  getDevis(params?: GetDevis$Params, context?: HttpContext): Observable<Array<Devis>> {
+    return this.getDevis$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<Devis>>): Array<Devis> => r.body)
     );
   }
 
-  /** Path part for operation `supprimerDevis()` */
-  static readonly SupprimerDevisPath = '/devis/supprimer/{id}';
+  /** Path part for operation `getDevisById()` */
+  static readonly GetDevisByIdPath = '/devis/get/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `supprimerDevis()` instead.
+   * To access only the response body, use `getDevisById()` instead.
    *
    * This method doesn't expect any request body.
    */
-  supprimerDevis$Response(params: SupprimerDevis$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return supprimerDevis(this.http, this.rootUrl, params, context);
+  getDevisById$Response(params: GetDevisById$Params, context?: HttpContext): Observable<StrictHttpResponse<Devis>> {
+    return getDevisById(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `supprimerDevis$Response()` instead.
+   * To access the full response (for headers, for example), `getDevisById$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  supprimerDevis(params: SupprimerDevis$Params, context?: HttpContext): Observable<string> {
-    return this.supprimerDevis$Response(params, context).pipe(
-      map((r: StrictHttpResponse<string>): string => r.body)
+  getDevisById(params: GetDevisById$Params, context?: HttpContext): Observable<Devis> {
+    return this.getDevisById$Response(params, context).pipe(
+      map((r: StrictHttpResponse<Devis>): Devis => r.body)
     );
   }
 
   /** Path part for operation `supprimerTout()` */
-  static readonly SupprimerToutPath = '/devis/supprimer/tout';
+  static readonly SupprimerToutPath = '/devis/delete';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
@@ -175,6 +150,33 @@ export class DevisControllerService extends BaseService {
    */
   supprimerTout(params?: SupprimerTout$Params, context?: HttpContext): Observable<string> {
     return this.supprimerTout$Response(params, context).pipe(
+      map((r: StrictHttpResponse<string>): string => r.body)
+    );
+  }
+
+  /** Path part for operation `deleteDevis()` */
+  static readonly DeleteDevisPath = '/devis/delete/{id}';
+
+  /**
+   * This method provides access to the full `HttpResponse`, allowing access to response headers.
+   * To access only the response body, use `deleteDevis()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteDevis$Response(params: {
+    id: number | undefined
+  }, context?: HttpContext | undefined): Observable<StrictHttpResponse<string>> {
+    return deleteDevis(this.http, this.rootUrl, params, context);
+  }
+
+  /**
+   * This method provides access only to the response body.
+   * To access the full response (for headers, for example), `deleteDevis$Response()` instead.
+   *
+   * This method doesn't expect any request body.
+   */
+  deleteDevis(params: { id: number | undefined }, context?: HttpContext): Observable<string> {
+    return this.deleteDevis$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }

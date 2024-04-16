@@ -1,0 +1,65 @@
+<div class="fluid-container">
+  <h1>Crée un chantier</h1>
+  <div class="content">
+    <div class="alert alert-danger" *ngIf="errorCustomerRequest">vous devez d'abord selectionner un client</div>
+    <div class="alert alert-success" *ngIf="addedConstruction">Votre chantier a été bien enregsitrer</div>
+    <div id="customer">
+      <div class="d-flex align-items-center">
+        <h2>Les information du client :</h2>
+        <select class="form-select w-25 mb-2 ms-3" (change)="selectCustomer($event)">
+          <option> choisie un client</option>
+          <option *ngFor="let item of customerList"
+                  [value]="item.id">{{ item.generaleInfo.firstName }} {{ item.generaleInfo.lastName }}
+          </option>
+        </select>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col">
+          <label for="firstName" class="form-label">nom :</label>
+          <input id="firstName" type="text" class="form-control w-75" [(ngModel)]="customer.generaleInfo.firstName">
+        </div>
+        <div class="col">
+          <label for="lastName" class="form-label">prenom :</label>
+          <input id="lastName" type="text" class="form-control w-75" [(ngModel)]="customer.generaleInfo.lastName">
+        </div>
+        <div class="col">
+          <label for="age" class="form-label">age :</label>
+          <input id="age" type="number" class="form-control w-25" [(ngModel)]="customer.generaleInfo.age">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <label for="email" class="form-label">email :</label>
+          <input id="email" type="email" class="form-control w-75" placeholder="@exemple.com"
+                 [(ngModel)]="customer.email">
+        </div>
+        <div class="col-4">
+          <label for="phone" class="form-label">telephone :</label>
+          <input id="phone" type="text" class="form-control w-50" placeholder="+216 " [(ngModel)]="customer.phone">
+        </div>
+      </div>
+    </div>
+    <div id="constructor">
+      <h2>Les information du chantier :</h2>
+      <hr>
+      <div class="row">
+        <div class="col-4">
+          <label for="location" class="form-label">emplacement :</label>
+          <input id="location" type="text" class="form-control w-75" [(ngModel)]="devisRequest.location">
+        </div>
+        <div class="col-6">
+          <label for="description" class="form-label">description :</label>
+          <textarea id="description" class="form-control w-75" cols="10" rows="6"
+                    [(ngModel)]="construction.description"></textarea>
+        </div>
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-primary" (click)="addConstructor()">enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

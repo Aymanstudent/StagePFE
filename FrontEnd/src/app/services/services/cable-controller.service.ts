@@ -9,15 +9,15 @@ import { BaseService } from '../base-service';
 import { ApiConfiguration } from '../api-configuration';
 import { StrictHttpResponse } from '../strict-http-response';
 
-import { afficherCables } from '../fn/cable-controller/afficher-cables';
-import { AfficherCables$Params } from '../fn/cable-controller/afficher-cables';
-import { ajouterCable } from '../fn/cable-controller/ajouter-cable';
-import { AjouterCable$Params } from '../fn/cable-controller/ajouter-cable';
+import { addCable } from '../fn/cable-controller/add-cable';
+import { AddCable$Params } from '../fn/cable-controller/add-cable';
 import { Cable } from '../models/cable';
-import { modifierCable } from '../fn/cable-controller/modifier-cable';
-import { ModifierCable$Params } from '../fn/cable-controller/modifier-cable';
-import { supprimerCable } from '../fn/cable-controller/supprimer-cable';
-import { SupprimerCable$Params } from '../fn/cable-controller/supprimer-cable';
+import { deleteCable } from '../fn/cable-controller/delete-cable';
+import { DeleteCable$Params } from '../fn/cable-controller/delete-cable';
+import { getCables } from '../fn/cable-controller/get-cables';
+import { GetCables$Params } from '../fn/cable-controller/get-cables';
+import { updateCable } from '../fn/cable-controller/update-cable';
+import { UpdateCable$Params } from '../fn/cable-controller/update-cable';
 
 @Injectable({ providedIn: 'root' })
 export class CableControllerService extends BaseService {
@@ -25,102 +25,102 @@ export class CableControllerService extends BaseService {
     super(config, http);
   }
 
-  /** Path part for operation `modifierCable()` */
-  static readonly ModifierCablePath = '/cable/modifier';
+  /** Path part for operation `updateCable()` */
+  static readonly UpdateCablePath = '/cable/update';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `modifierCable()` instead.
+   * To access only the response body, use `updateCable()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  modifierCable$Response(params: ModifierCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return modifierCable(this.http, this.rootUrl, params, context);
+  updateCable$Response(params: UpdateCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return updateCable(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `modifierCable$Response()` instead.
+   * To access the full response (for headers, for example), `updateCable$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  modifierCable(params: ModifierCable$Params, context?: HttpContext): Observable<string> {
-    return this.modifierCable$Response(params, context).pipe(
+  updateCable(params: UpdateCable$Params, context?: HttpContext): Observable<string> {
+    return this.updateCable$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 
-  /** Path part for operation `ajouterCable()` */
-  static readonly AjouterCablePath = '/cable/ajouter';
+  /** Path part for operation `addCable()` */
+  static readonly AddCablePath = '/cable/add';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `ajouterCable()` instead.
+   * To access only the response body, use `addCable()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  ajouterCable$Response(params: AjouterCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return ajouterCable(this.http, this.rootUrl, params, context);
+  addCable$Response(params: AddCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return addCable(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `ajouterCable$Response()` instead.
+   * To access the full response (for headers, for example), `addCable$Response()` instead.
    *
    * This method sends `application/json` and handles request body of type `application/json`.
    */
-  ajouterCable(params: AjouterCable$Params, context?: HttpContext): Observable<string> {
-    return this.ajouterCable$Response(params, context).pipe(
+  addCable(params: AddCable$Params, context?: HttpContext): Observable<string> {
+    return this.addCable$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }
 
-  /** Path part for operation `afficherCables()` */
-  static readonly AfficherCablesPath = '/cable/afficher/tout';
+  /** Path part for operation `getCables()` */
+  static readonly GetCablesPath = '/cable/get';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `afficherCables()` instead.
+   * To access only the response body, use `getCables()` instead.
    *
    * This method doesn't expect any request body.
    */
-  afficherCables$Response(params?: AfficherCables$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Cable>>> {
-    return afficherCables(this.http, this.rootUrl, params, context);
+  getCables$Response(params?: GetCables$Params, context?: HttpContext): Observable<StrictHttpResponse<Array<Cable>>> {
+    return getCables(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `afficherCables$Response()` instead.
+   * To access the full response (for headers, for example), `getCables$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  afficherCables(params?: AfficherCables$Params, context?: HttpContext): Observable<Array<Cable>> {
-    return this.afficherCables$Response(params, context).pipe(
+  getCables(params?: GetCables$Params, context?: HttpContext): Observable<Array<Cable>> {
+    return this.getCables$Response(params, context).pipe(
       map((r: StrictHttpResponse<Array<Cable>>): Array<Cable> => r.body)
     );
   }
 
-  /** Path part for operation `supprimerCable()` */
-  static readonly SupprimerCablePath = '/cable/supprimer/{id}';
+  /** Path part for operation `deleteCable()` */
+  static readonly DeleteCablePath = '/cable/delete/{id}';
 
   /**
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `supprimerCable()` instead.
+   * To access only the response body, use `deleteCable()` instead.
    *
    * This method doesn't expect any request body.
    */
-  supprimerCable$Response(params: SupprimerCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
-    return supprimerCable(this.http, this.rootUrl, params, context);
+  deleteCable$Response(params: DeleteCable$Params, context?: HttpContext): Observable<StrictHttpResponse<string>> {
+    return deleteCable(this.http, this.rootUrl, params, context);
   }
 
   /**
    * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `supprimerCable$Response()` instead.
+   * To access the full response (for headers, for example), `deleteCable$Response()` instead.
    *
    * This method doesn't expect any request body.
    */
-  supprimerCable(params: SupprimerCable$Params, context?: HttpContext): Observable<string> {
-    return this.supprimerCable$Response(params, context).pipe(
+  deleteCable(params: DeleteCable$Params, context?: HttpContext): Observable<string> {
+    return this.deleteCable$Response(params, context).pipe(
       map((r: StrictHttpResponse<string>): string => r.body)
     );
   }

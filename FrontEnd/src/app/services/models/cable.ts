@@ -1,16 +1,15 @@
 /* tslint:disable */
 /* eslint-disable */
 export interface Cable {
-  diametre?: number;
-  garantie?: string;
+  diameter?: number;
   id?: number;
   isolation?: string;
-  longueur?: number;
-  materiau?: string;
-  modele?: string;
-  prix?: number;
+  length?: number;
+  material?: string;
+  model?: string;
+  nominal_voltage?: number;
+  price?: number;
   resistance?: number;
-  section_trensversal?: string;
-  tension_nominal?: number;
+  section_transversal?: string;
   type?: string;
 }

@@ -19,11 +19,11 @@ export class NavBarComponent implements OnInit{
   ngOnInit() {
     this.myDecodedToken = this.tokenService.decodeToken(this.token);
     console.log(this.myDecodedToken)
-    if(this.myDecodedToken.authorities[0] == "OUVRIER"){
+    if(this.myDecodedToken.authorities[0] == "TECHNICIEN"){
       this.technicien = true
     }else if(this.myDecodedToken.authorities[0] == "GESTIONNAIRE"){
       this.gestionnaire = true
-    }else if(this.myDecodedToken.authorities[0] == "SEECRETAIRE"){
+    }else if(this.myDecodedToken.authorities[0] == "OUVRIER"){
       this.secretaire = true
     }
   }

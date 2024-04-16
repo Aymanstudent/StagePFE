@@ -1,0 +1,152 @@
+<div class="fluid-container">
+  <h1>Les ouvriers</h1>
+  <div class="d-flex justify-content-start w-100">
+    <span style="font-size: 1.5rem; color: #3b7ddd; font-weight: 700">Ajouter un ouvrier</span>
+    <i class="bi bi-plus-square-fill ms-3" style="color: #3b7ddd" data-bs-toggle="modal" data-bs-target="#AjouterOuvrierModal"></i>
+  </div>
+  <div class="ouvriers">
+    <div class="ouvrier" *ngFor="let item of workers">
+      <div class="d-flex justify-content-center align-items-center flex-column content" >
+        <img [src] = "getImageUrl(item.image)" width="250px" class="">
+        <span class="mt-3">{{ item.generaleInfo.firstName }} {{ item.generaleInfo.lastName }}</span>
+        <span class="mt-3" style="text-decoration: underline; text-transform: uppercase">{{ item.profession }}</span>
+        <span class="mt-3">+216 {{item.phone}}</span>
+        <div class="d-flex justify-content-between w-100 p-3"><i class="bi bi-pencil-square" style="color: green" data-bs-toggle="modal" (click)="selectWorker(item)" data-bs-target="#ModifierOuvrierModal"></i><i class="bi bi-trash" style="color: red" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="selectWorker(item)"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        Allez-vous supprimer cette ouvrier?
+      </div>
+      <div class="d-flex justify-content-end p-2">
+        <button type="button" class="btn btn-light" data-bs-dismiss="modal">annuler</button>
+        <button type="button" class="btn btn-danger ms-2" (click)="deleteWorker()">oui</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="AjouterOuvrierModal" tabindex="-1" aria-labelledby="AjouterOuvrierLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label for="nom">nom:</label>
+            <input type="text" id="nom" class="form-control" [(ngModel)]="worker.generaleInfo.firstName">
+          </div>
+          <div class="col">
+            <label for="prenom">prenom:</label>
+            <input type="text" id="prenom" class="form-control" [(ngModel)]="worker.generaleInfo.lastName">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="age">age:</label>
+            <input type="number" id="age" class="form-control" [(ngModel)]="worker.generaleInfo.age">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="telephone">telephone:</label>
+            <input type="text" id="telephone" class="form-control" [(ngModel)]="worker.phone">
+          </div>
+          <div class="col">
+            <label for="email">email:</label>
+            <input type="email" id="email" class="form-control" [(ngModel)]="worker.email">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="adresse">addresse:</label>
+            <input type="text" id="adresse" class="form-control" [(ngModel)]="worker.generaleInfo.address">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="profession">profession:</label>
+            <select class="form-select" id="profession" [(ngModel)]="worker.profession">
+              <option value="Technicien">Technicien</option>
+              <option value="Sectretaire">Sectretaire</option>
+              <option value="Gestionnaire">Gestionnaire</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <input type="file" id="image" class="form-control"  (change)="onFileChange($event)" accept="image/*">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="addWorker()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="ModifierOuvrierModal" tabindex="-1" aria-labelledby="AjouterOuvrierLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <label for="nom_ouvrier">nom:</label>
+            <input type="text" id="nom_ouvrier" class="form-control" [(ngModel)]="worker.generaleInfo.firstName">
+          </div>
+          <div class="col">
+            <label for="prenom_ouvrier">prenom:</label>
+            <input type="text" id="prenom_ouvrier" class="form-control" [(ngModel)]="worker.generaleInfo.lastName">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="age_ouvrier">age:</label>
+            <input type="number" id="age_ouvrier" class="form-control" [(ngModel)]="worker.generaleInfo.age">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="telephone_ouvrier">telephone:</label>
+            <input type="text" id="telephone_ouvrier" class="form-control" [(ngModel)]="worker.phone">
+          </div>
+          <div class="col">
+            <label for="email_ouvrier">email:</label>
+            <input type="email" id="email_ouvrier" class="form-control" [(ngModel)]="worker.email">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="adresse_ouvrier">adresse:</label>
+            <input type="text" id="adresse_ouvrier" class="form-control" [(ngModel)]="worker.generaleInfo.address">
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col">
+            <label for="profesion_ouvrier">profession:</label>
+            <select class="form-select" id="profesion_ouvrier" [(ngModel)]="worker.profession">
+              <option value="Technicien">Technicien</option>
+              <option value="Sectretaire">Sectretaire</option>
+              <option value="Gestionnaire">Gestionnaire</option>
+            </select>
+          </div>
+        </div>
+        <div class="row mt-3">
+          <div class="col">
+            <input type="file" id="image_ouvrier" class="form-control"  (change)="onFileChange($event)" accept="image/*">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="updateWorker()">Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

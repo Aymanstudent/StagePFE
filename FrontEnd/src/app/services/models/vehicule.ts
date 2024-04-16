@@ -1,11 +1,11 @@
 /* tslint:disable */
 /* eslint-disable */
-import { EvenementChantier } from '../models/evenement-chantier';
+import { Activity } from '../models/activity';
 export interface Vehicule {
-  disponible?: boolean;
-  evenementChantiers?: Array<EvenementChantier>;
+  activities?: Array<Activity>;
+  available?: boolean;
   id?: number;
   marque?: string;
-  modele?: string;
+  model?: string;
   ref?: string;
 }

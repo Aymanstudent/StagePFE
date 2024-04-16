@@ -4,25 +4,25 @@ import { NgModule, ModuleWithProviders, SkipSelf, Optional } from '@angular/core
 import { HttpClient } from '@angular/common/http';
 import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { SystemeFixationControllerService } from './services/systeme-fixation-controller.service';
-import { PanneauSolaireControllerService } from './services/panneau-solaire-controller.service';
-import { OuvrierControllerService } from './services/ouvrier-controller.service';
-import { OnduleurControllerService } from './services/onduleur-controller.service';
-import { EvenementChantierControllerService } from './services/evenement-chantier-controller.service';
-import { FournisseurControllerService } from './services/fournisseur-controller.service';
+import { WorkerControllerService } from './services/worker-controller.service';
+import { SystemFixingControllerService } from './services/system-fixing-controller.service';
+import { SupplierControllerService } from './services/supplier-controller.service';
+import { SolarPanelControllerService } from './services/solar-panel-controller.service';
+import { MeterControllerService } from './services/meter-controller.service';
+import { InverterControllerService } from './services/inverter-controller.service';
+import { DevisRequestControllerService } from './services/devis-request-controller.service';
 import { DevisControllerService } from './services/devis-controller.service';
-import { DemandeControllerService } from './services/demande-controller.service';
-import { CompteurControllerService } from './services/compteur-controller.service';
-import { ClientControllerService } from './services/client-controller.service';
+import { CustomerControllerService } from './services/customer-controller.service';
 import { CableControllerService } from './services/cable-controller.service';
-import { BatterieControllerService } from './services/batterie-controller.service';
+import { BatteryControllerService } from './services/battery-controller.service';
+import { ActivityControllerService } from './services/activity-controller.service';
 import { EmailSenderControllerService } from './services/email-sender-controller.service';
-import { FactureControllerService } from './services/facture-controller.service';
-import { ChantierControllerService } from './services/chantier-controller.service';
-import { AvenantControllerService } from './services/avenant-controller.service';
+import { ConstructionControllerService } from './services/construction-controller.service';
+import { BillControllerService } from './services/bill-controller.service';
 import { AuthenticationService } from './services/authentication.service';
-import { VehiculeControllerService } from './services/vehicule-controller.service';
-import { TacheControllerService } from './services/tache-controller.service';
+import { AmendmentControllerService } from './services/amendment-controller.service';
+import { VehicleControllerService } from './services/vehicle-controller.service';
+import { SpotControllerService } from './services/spot-controller.service';
 
 /**
  * Module that provides all services and configuration.
@@ -32,25 +32,25 @@ import { TacheControllerService } from './services/tache-controller.service';
   exports: [],
   declarations: [],
   providers: [
-    SystemeFixationControllerService,
-    PanneauSolaireControllerService,
-    OuvrierControllerService,
-    OnduleurControllerService,
-    EvenementChantierControllerService,
-    FournisseurControllerService,
+    WorkerControllerService,
+    SystemFixingControllerService,
+    SupplierControllerService,
+    SolarPanelControllerService,
+    MeterControllerService,
+    InverterControllerService,
+    DevisRequestControllerService,
     DevisControllerService,
-    DemandeControllerService,
-    CompteurControllerService,
-    ClientControllerService,
+    CustomerControllerService,
     CableControllerService,
-    BatterieControllerService,
+    BatteryControllerService,
+    ActivityControllerService,
     EmailSenderControllerService,
-    FactureControllerService,
-    ChantierControllerService,
-    AvenantControllerService,
+    ConstructionControllerService,
+    BillControllerService,
     AuthenticationService,
-    VehiculeControllerService,
-    TacheControllerService,
+    AmendmentControllerService,
+    VehicleControllerService,
+    SpotControllerService,
     ApiConfiguration
   ],
 })

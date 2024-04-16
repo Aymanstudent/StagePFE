@@ -27,6 +27,16 @@ public class DemoApplication {
 						Role.builder().nom("OUVRIER").build()
 				);
 			}
+			if (roleRepository.findByNom("TECHNICIEN").isEmpty()){
+				roleRepository.save(
+						Role.builder().nom("TECHNICIEN").build()
+				);
+			}
+			if(roleRepository.findByNom("GESTIONNAIRE").isEmpty()){
+				roleRepository.save(
+						Role.builder().nom("GESTIONNAIRE").build()
+				);
+			}
 		};
 	}
 }

@@ -1,0 +1,13 @@
+<div class="fluid-container pb-5">
+  <h1 class="text-center mt-5">Si vous acceptez cette devis cliquer sur accepter</h1>
+  <div *ngIf="!accpeted||!refused" class="d-flex align-items-center justify-content-center w-100 mt-5">
+    <button class="btn btn-primary" (click)="acceptDevis()">accpeter</button>
+    <button class="btn btn-dark" (click)="refuseDevis()">refuser</button>
+  </div>
+  <div *ngIf="accpeted" class="alert alert-info text-center w-50 m-auto mt-3"> Merci pour votre accpetation <br> Nous
+    sommes heureux de travailler avec vous
+  </div>
+  <div *ngIf="refused&&!accpeted" class="alert alert-info text-center w-50 m-auto mt-3"> Nous sommes heureux de
+    travailler avec vous
+  </div>
+</div>

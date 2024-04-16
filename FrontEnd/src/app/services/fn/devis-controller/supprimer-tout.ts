@@ -25,4 +25,4 @@ export function supprimerTout(http: HttpClient, rootUrl: string, params?: Suppri
   );
 }
 
-supprimerTout.PATH = '/devis/supprimer/tout';
+supprimerTout.PATH = '/devis/delete';

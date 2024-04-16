@@ -8,38 +8,37 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "devis")
 @Data
 public class Devis {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private Date date;
     private String ref;
     private String etat;
     private String status;
     @Embedded
-    private DevisMateriauPanneauSolaire panneauSolaire;
+    private MaterielSolarPanel solarPanel;
     @Embedded
-    private DevisMateriauOnduleur onduleur;
+    private MaterielInverter inverter;
     @Embedded
-    private DevisMateriauSystemeFixation systemeFixation;
+    private MaterielSystemFixing systemFixing;
     @Embedded
-    private DevisMateriauCable cable;
+    private MaterielCable cable;
     @Embedded
-    private DevisMateriauBatteri batteri;
+    private MaterielBattery battery;
     @Embedded
-    private DevisMateriauCompteur compteur;
+    private MaterielMeter meter;
     @JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
     @OneToOne
-    private DemandeDevis demandeDevis;
+    private DevisRequest devisRequest;
     @JsonIdentityInfo(generator= ObjectIdGenerators.PropertyGenerator.class, property="id")
     @JsonIdentityReference(alwaysAsId=true)
-    @OneToOne(mappedBy = "devis")
-    private Chantier chantier;
+    @ManyToOne
+    private Construction construction;
     private Float total;
 }

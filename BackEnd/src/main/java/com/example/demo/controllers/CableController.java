@@ -3,36 +3,36 @@ package com.example.demo.controllers;
 
 import com.example.demo.models.Cable;
 import com.example.demo.services.CableService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-@CrossOrigin("http://localhost:4200")
+
 @RestController
 @RequestMapping("cable")
+@RequiredArgsConstructor
 public class CableController {
 
-    @Autowired
-    private CableService cableService;
+    private final CableService cableService;
 
-    @GetMapping("afficher/tout")
-    public List<Cable> afficher_cables() throws Exception{
-        return this.cableService.afficher_cables();
+    @GetMapping("get")
+    public List<Cable> getCables() throws Exception {
+        return this.cableService.getCables();
     }
 
-    @PostMapping("ajouter")
-    public ResponseEntity<String> ajouter_cable(@RequestBody Cable cable){
-        return this.cableService.ajouter_cable(cable);
+    @PostMapping("add")
+    public ResponseEntity<String> addCable(@RequestBody Cable cable) {
+        return this.cableService.addCable(cable);
     }
 
-    @PutMapping("modifier")
-    public ResponseEntity<String> modifier_cable(@RequestBody Cable cable){
-        return this.cableService.modifier_cable(cable);
+    @PutMapping("update")
+    public ResponseEntity<String> updateCable(@RequestBody Cable cable) {
+        return this.cableService.updateCable(cable);
     }
 
-    @DeleteMapping("supprimer/{id}")
-    public ResponseEntity<String> supprimer_cable(@PathVariable Long id){
-        return this.cableService.supprimer_cable(id);
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<String> deleteCable(@PathVariable Long id) {
+        return this.cableService.deleteCable(id);
     }
 }
